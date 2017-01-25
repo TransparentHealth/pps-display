@@ -111,11 +111,11 @@ $yourId.append($yourIdShare);
 $yourId.append($yourIdSell);
 $yourIdShare.append('<h4>Do we share your indentifiable data?</h4>');
 if (mpnData.share.noneWithId) {
-  $yourIdShare.append('<p class="answer">No</p>');
+  $yourIdShare.append('<p class="answer-no"><i class="fa fa-times-circle-o" aria-hidden="true"></i>&nbspNo</p>');
   $yourIdShare.append($idShareInfo);
     $idShareInfo.append('<p>We DO NOT share your identifiable data</p>');
 } else {
-    $yourIdShare.append('<p class="answer"><i class="fa fa-check-circle-o" aria-hidden="true"></i>&nbspYes</p>');
+    $yourIdShare.append('<p class="answer-yes"><i class="fa fa-check-circle-o" aria-hidden="true"></i>&nbspYes</p>');
     $yourIdShare.append($idShareInfo);
     $idShareInfo.append("<h5>We share your data:</h5>");
     if (mpnData.share.primaryServiceWithId) {
@@ -136,15 +136,15 @@ if (mpnData.share.noneWithId) {
 }
 $yourIdSell.append('<h4>Do we sell your identifiable data?</h4>');
 if (mpnData.sell.dataWithId === "Yes") {
-    $yourIdSell.append('<p class="answer"><i class="fa fa-check-circle-o" aria-hidden="true"></i>&nbsp' + mpnData.sell.dataWithId + '</p>');
+    $yourIdSell.append('<p class="answer-yes"><i class="fa fa-check-circle-o" aria-hidden="true"></i>&nbsp' + mpnData.sell.dataWithId + '</p>');
     $yourIdSell.append($idSellInfo);
     $idSellInfo.append("<p>We sell your identifiable data to data brokers, marketing, advertising networks, or analytics firms.</p>");
 } else if (mpnData.sell.dataWithId === "Yes. With your permission,") {
-  $yourIdSell.append('<p><i class="fa fa-check-circle-o" aria-hidden="true"></i>&nbspYes</p>');
+  $yourIdSell.append('<p class="answer-yes"><i class="fa fa-check-circle-o" aria-hidden="true"></i>&nbspYes</p>');
   $yourIdSell.append($idSellInfo);
   $$idSellInfo.append("<p>With your permission, we sell your identifiable data to data brokers, marketing, advertising networks, or analytics firms.</p>");
 } else {
-  $yourIdSell.append('<p class="answer">' + mpnData.sell.dataWithId + '</p>');
+  $yourIdSell.append('<p class="answer-no"><i class="fa fa-times-circle-o" aria-hidden="true"></i>&nbsp' + mpnData.sell.dataWithId + '</p>');
   $yourIdSell.append($idSellInfo);
   $$idSellInfo.append("<p>We do not sell your identifiable data to data brokers, marketing, advertising networks, or analytics firms.</p>");
 }
@@ -161,11 +161,11 @@ $yourNonId.append($yourNonIdShare);
 $yourNonId.append($yourNonIdSell);
 $yourNonIdShare.append('<h4>Do we share your non-identifiable data?</h4>');
 if (mpnData.share.noneNoId) {
-    $yourNonIdShare.append('<p class="answer">No</p>');
+    $yourNonIdShare.append('<p class="answer-no"><i class="fa fa-times-circle-o" aria-hidden="true"></i>&nbspNo</p>');
     $nonIdShare.append($nonIdShareInfo);
     $$nonIdShareInfo.append('<p>We DO NOT share your data after removing identifiers</p>');
 } else {
-    $yourNonIdShare.append('<p class="answer"><i class="fa fa-check-circle-o" aria-hidden="true"></i>&nbspYes</p>');
+    $yourNonIdShare.append('<p class="answer-yes"><i class="fa fa-check-circle-o" aria-hidden="true"></i>&nbspYes</p>');
     $yourNonIdShare.append($nonIdShareInfo);
     $nonIdShareInfo.append("<h5>We share your data AFTER removing identifiers:</h5>");
     if (mpnData.share.primaryServiceNoId) {
@@ -186,21 +186,62 @@ if (mpnData.share.noneNoId) {
 }
 $yourNonIdSell.append('<h4>Do we sell your non-identifiable data?</h4>');
 if (mpnData.sell.dataNoId === "Yes") {
-    $yourNonIdSell.append('<p class="answer"><i class="fa fa-check-circle-o" aria-hidden="true"></i>&nbsp' + mpnData.sell.dataNoId +  '</p>');
+    $yourNonIdSell.append('<p class="answer-yes"><i class="fa fa-check-circle-o" aria-hidden="true"></i>&nbsp' + mpnData.sell.dataNoId +  '</p>');
     $yourNonIdSell.append($nonIdSellInfo);
     $nonIdSellInfo.append("<p>We sell your data AFTER removing identifiers to data brokers, marketing, advertising networks, or analytics firms.</p>");
 } else if (mpnData.sell.dataNoId === "Yes. With your permission,") {
-  $yourNonIdSell.append('<p class="answer"><i class="fa fa-check-circle-o" aria-hidden="true"></i>&nbspYes</p>');
+  $yourNonIdSell.append('<p class="answer-yes"><i class="fa fa-check-circle-o" aria-hidden="true"></i>&nbspYes</p>');
   $yourNonIdSell.append($nonIdSellInfo);
   $nonIdSellInfo.append("<p>With your permission, we sell your data AFTER removing identifiers to data brokers, marketing, advertising networks, or analytics firms.</p>");
 } else {
-  $yourNonIdSell.append('<p class="answer">' + mpnData.sell.dataNoId +  '</p>');
+  $yourNonIdSell.append('<p class="answer-no"><i class="fa fa-times-circle-o" aria-hidden="true"></i>&nbsp' + mpnData.sell.dataNoId +  '</p>');
   $yourNonIdSell.append($nonIdSellInfo);
   $nonIdSellInfo.append("<p>We do not sell your data AFTER removing identifiers to data brokers, marketing, advertising networks, or analytics firms.</p>");
 }
 
 $nonIdSellInfo.append("<p>(note that remaining data may still not be completely anonymous)</p>");
 
+// Data Encryption Info
+var $encryption = $('<div class="encryption"></div>');
+var $encryptionLocal = $('<div class="encrypt-local"></div>');
+var $encryptionServer = $('<div class="encrypt-third"></div>');
+var $encryptionTransmit = $('<div class="encrypt-trans"></div>');
+var yesDefault = "Yes, by default";
+var yesSteps = "Yes, when you take certain steps";
+$encryption.append("<h3>Encryption: How we encrypt your data</h3>");
+$encryption.append($encryptionLocal);
+$encryptionLocal.append("<h4>Do we encrypt your data within your device or app?</h4>");
+if (mpnData.encryption.device === yesDefault) {
+    $encryptionLocal.append('<p class="answer-yes"><i class="fa fa-check-circle-o" aria-hidden="true"></i>&nbspYes</p>' +  '<p>By default</p>');
+} else if (mpnData.encryption.device === yesSteps)  {
+    $encryptionLocal.append('<p class="answer-yes"><i class="fa fa-check-circle-o" aria-hidden="true"></i>&nbspYes</p>' + '<p>When you take certain steps</p>');
+} else if (mpnData.encryption.device === "No") {
+      $encryptionLocal.append('<p class="answer-no"><i class="fa fa-times-circle-o" aria-hidden="true"></i>&nbsp' + mpnData.encryption.device + '</p>');
+} else {
+  $encryptionLocal.append('<p>' + mpnData.encryption.device + '</p>');
+}
+$encryption.append($encryptionServer);
+$encryptionServer.append("<h4>Do we encrypt your data when stored on our company servers or on the cloud?</h4>");
+if (mpnData.encryption.server === yesDefault) {
+    $encryptionServer.append('<p class="answer-yes"><i class="fa fa-check-circle-o" aria-hidden="true"></i>&nbspYes</p>' +  '<p>By default</p>');
+} else if (mpnData.encryption.server === "Yes, when you take certain steps")  {
+      $encryptionServer.append('<p class="answer-yes"><i class="fa fa-check-circle-o" aria-hidden="true"></i>&nbspYes</p>' + '<p>When you take certain steps</p>');
+} else if (mpnData.encryption.server === "No") {
+      $encryptionServer.append('<p class="answer-no"><i class="fa fa-times-circle-o" aria-hidden="true"></i>&nbsp' + mpnData.encryption.server + '</p>');
+} else {
+  $encryptionServer.append('<p>' + mpnData.encryption.server + '</p>');
+}
+$encryption.append($encryptionTransmit);
+$encryptionTransmit.append("<h4>Do we encrypt your data while it is transmitted?</h4>");
+if (mpnData.encryption.transmit === yesDefault) {
+    $encryptionTransmit.append('<p class="answer-yes"><i class="fa fa-check-circle-o" aria-hidden="true"></i>&nbspYes</p>' +  '<p>By default</p>');
+} else if (mpnData.encryption.transmit === yesSteps)  {
+      $encryptionTransmit.append('<p class="answer-yes"><i class="fa fa-check-circle-o" aria-hidden="true"></i>&nbspYes</p>' + '<p>When you take certain steps</p>');
+} else if (mpnData.encryption.transmit === "No") {
+      $encryptionTransmit.append('<p class="answer-no"><i class="fa fa-times-circle-o" aria-hidden="true"></i>&nbsp' + mpnData.encryption.transmit + '</p>');
+} else {
+  $encryptionTransmit.append('<p>' + mpnData.encryption.transmit + '</p>');
+}
 
 // Data Storing Info
 var $store = $('<div class="data-storage"></div>');
@@ -210,30 +251,18 @@ $store.append("<h3>Data Storage:</h3>");
 $store.append($local);
 $local.append("<h4>Is your data stored on your own device?</h4>");
 if (mpnData.store.device === 'Yes') {
-    $local.append('<p class="answer"><i class="fa fa-check-circle-o" aria-hidden="true"></i>&nbsp' + mpnData.store.device + '</p>');
+    $local.append('<p class="answer-yes"><i class="fa fa-check-circle-o" aria-hidden="true"></i>&nbsp' + mpnData.store.device + '</p>');
 } else {
-  //NO WITH ICON!!!!!!!!!!!!
+      $local.append('<p class="answer-no"><i class="fa fa-times-circle-o" aria-hidden="true"></i>&nbsp' + mpnData.store.device + '</p>');
 }
 $store.append($third);
 $third.append("<h4>Is your data stored at our company or through a third party?</h4>");
-if (mpnData.store.external) {
-    $third.append('<p class="answer">' + mpnData.store.external + '</p>');
+if (mpnData.store.external === "Yes") {
+    $third.append('<p class="answer-yes">' + mpnData.store.external + '</p>');
+}else {
+    $third.append('<p class="answer-no"><i class="fa fa-times-circle-o" aria-hidden="true"></i>&nbsp' + mpnData.store.external + '</p>');
 }
-// Data Encryption Info
-var $encryption = $('<div></div>');
-$encryption.append("<h3>Encryption: How we encrypt your data</h3>");
-$encryption.append("<p>Does our product encrypt your data within your device or app?</p>");
-if (mpnData.encryption.device) {
-    $encryption.append('<p>' + mpnData.encryption.device + '</p>');
-}
-$encryption.append("<p>Does our product encrypt your data when stored on our company servers or with an outside cloud computing services provider?</p>");
-if (mpnData.encryption.server) {
-    $encryption.append('<p>' + mpnData.encryption.server + '</p>');
-}
-$encryption.append("<p>Does our product encrypt your data while it is transmitted?</p>");
-if (mpnData.encryption.transmit) {
-    $encryption.append('<p>' + mpnData.encryption.transmit + '</p>');
-}
+
 // Privacy Info
 var $privacy = $('<div></div>');
 $privacy.append("<h3>Privacy: How our product accesses your device data</h3>");
@@ -351,7 +380,7 @@ if (mpnData.contact.address) {
     $contact.append($formText);
 }
 // Compile all summary sections
-$summary.append($title).append($hipaa).append($use).append($yourId).append($yourNonId).append($store).append($encryption).append($privacy).append($user).append($deactivation).append($policy).append($breach).append($contact);
+$summary.append($title).append($hipaa).append($use).append($yourId).append($yourNonId).append($encryption).append($store).append($privacy).append($user).append($deactivation).append($policy).append($breach).append($contact);
 // $summary.css({'background': 'beige', 'width': '400px', 'font-size': '13px'});
 // $('.animatedPreview h3').css({'font-weight': 'bold'});
 // $('.animatedPreview div').css({'margin': '10px'});

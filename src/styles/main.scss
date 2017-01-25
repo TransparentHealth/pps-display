@@ -1,5 +1,7 @@
+
 @import "partials/setup/reset";
 @import "partials/setup/variables";
+
 
 * div {
   margin: 5px;
@@ -13,14 +15,19 @@
   font-size: 1.2em;
   text-align: left;
   padding: 10px;
-  background-color: #F3A471;;
+  background-color: $orange;
+  font-family:  $tinos;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
 
 }
 
 * h4 {
-  background-color: #6E6F71;
+  background-color: $darkGray;
   border-radius: 5px;
+  font-size: 1em;
   display: inline-block;
+  font-family: $roboto;
   margin-right: 10px;
   text-align: center;
   padding: 8px;
@@ -30,12 +37,12 @@
 
 * h5 {
   display: inline-block;
-  border-bottom: 2px solid #6E6F71;
+  border-bottom: 2px solid $darkGray;
   margin-bottom: 5px;
+  font-family:  $tinos;
 }
 
 header {
-  //background-color: #6E6F71;
   display: flex;
   align-items: center;
   width: 100%;
@@ -43,6 +50,7 @@ header {
   margin-bottom: 5px;
   height: 80px;
   top: 0;
+  font-family: $playfair;
 
   p {
     padding: 10px 20px;
@@ -54,18 +62,29 @@ header {
 
 
 
-.answer {
-  background-color: #A0C2BB;
+.answer-yes {
+  background-color: $green;
   border-radius: 5px;
   color: #fff;
   display: inline-block;
-  font-size: 1.1em;
+  font-size: 1em;
   padding: 8px 15px;
+  font-family: $roboto;
 
 }
 
+.answer-no {
+  background-color: $red;
+  border-radius: 5px;
+  color: #fff;
+  display: inline-block;
+  font-size: 1em;
+  padding: 8px 15px;
+  font-family: $roboto;
+}
+
 .animatedPreview{
-  background-color: #c3ccd5;
+  background-color: $lightGray;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -77,15 +96,19 @@ header {
 
 .hipaa-container, .use-container {
   width: 48%;
+  border-radius: 3px;
 
   .hipaa-info, .use-info {
     box-shadow: none;
     padding: 5px;
+    font-family:  $tinos;
   }
 }
 
 .id-container, .nonId-container {
   width: 48%;
+  border-radius: 3px;
+
   .id-share, .id-sell {
     box-shadow: none;
   }
@@ -95,5 +118,30 @@ header {
 }
 
 .data-storage {
-  width: 40%;
+  width: 48%;
+  border-radius: 3px;
+
+
+  .local-storage, .third-storage {
+    box-shadow: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+.encryption {
+  width: 90%;
+  border-radius: 3px;
+
+  .encrypt-local, .encrypt-third, .encrypt-trans {
+    box-shadow: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family:  $tinos;
+
+    p {
+      display: inline-block;
+      margin-left: 10px;
+    }
+  }
 }
