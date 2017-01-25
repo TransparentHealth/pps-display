@@ -56,7 +56,7 @@ function createDisplay() {
 var containerSelector = '.animatedPreview';
 var $summary = $(containerSelector).html('');
 // Summary Title
-var $title = $('<h3>Summary</h3>');
+var $title = $('<header><p>Model Privacy Notice</p></header>');
 // HIPAA Info
 var $hipaa = $('<div class="hipaa-container"></div>');
 var $hipaaInfo = $('<div class="hipaa-info"></div>');
@@ -75,7 +75,7 @@ if (mpnData.hipaa.protected === 'Yes') {
 // Data Usage Info
 var $use = $('<div class="use-container"></div>');
 var $useInfo = $('<div class="use-info"></div>');
-$use.append("<h3>USE:</h3>");
+$use.append("<h3>Use:</h3>");
 $use.append($useInfo);
 $useInfo.append('<h5>We collect and use your identifiable data:</h5>');
 var $useList = $('<ul>');
@@ -106,7 +106,7 @@ var $yourIdShare = $('<div class="id-share"></div>');
 var $yourIdSell = $('<div class="id-sell"></div>');
 var $idShareInfo = $('<div class="share-info"></div>');
 var $idSellInfo = $('<div class="sell-info"></div>');
-$yourId.append("<h3>Your identifiable Data:</h3>");
+$yourId.append("<h3>Your Identifiable Data:</h3>");
 $yourId.append($yourIdShare);
 $yourId.append($yourIdSell);
 $yourIdShare.append('<h4>Do we share your indentifiable data?</h4>');
@@ -156,7 +156,7 @@ var $yourNonIdShare = $('<div class="id-share"></div>');
 var $yourNonIdSell = $('<div class="id-sell"></div>');
 var $nonIdShareInfo = $('<div class="share-info"></div>');
 var $nonIdSellInfo = $('<div class="sell-info"></div>');
-$yourNonId.append("<h3>Your non-identifiable Data:</h3>");
+$yourNonId.append("<h3>Your Non-Identifiable Data:</h3>");
 $yourNonId.append($yourNonIdShare);
 $yourNonId.append($yourNonIdSell);
 $yourNonIdShare.append('<h4>Do we share your non-identifiable data?</h4>');
@@ -203,15 +203,21 @@ $nonIdSellInfo.append("<p>(note that remaining data may still not be completely 
 
 
 // Data Storing Info
-var $store = $('<div></div>');
-$store.append("<h3>Storing Data: How we store your data</h3>");
-$store.append("<p>Is your data stored on your own device?</p>");
-if (mpnData.store.device) {
-    $store.append('<p>' + mpnData.store.device + '</p>');
+var $store = $('<div class="data-storage"></div>');
+var $local = $('<div class="local-storage"></div>');
+var $third = $('<div class="third-storage"></div>');
+$store.append("<h3>Data Storage:</h3>");
+$store.append($local);
+$local.append("<h4>Is your data stored on your own device?</h4>");
+if (mpnData.store.device === 'Yes') {
+    $local.append('<p class="answer"><i class="fa fa-check-circle-o" aria-hidden="true"></i>&nbsp' + mpnData.store.device + '</p>');
+} else {
+  //NO WITH ICON!!!!!!!!!!!!
 }
-$store.append("<p>Is your data stored outside your own device at our company or through a third party?</p>");
+$store.append($third);
+$third.append("<h4>Is your data stored at our company or through a third party?</h4>");
 if (mpnData.store.external) {
-    $store.append('<p>' + mpnData.store.external + '</p>');
+    $third.append('<p class="answer">' + mpnData.store.external + '</p>');
 }
 // Data Encryption Info
 var $encryption = $('<div></div>');
@@ -345,7 +351,7 @@ if (mpnData.contact.address) {
     $contact.append($formText);
 }
 // Compile all summary sections
-$summary.append($hipaa).append($use).append($yourId).append($yourNonId).append($store).append($encryption).append($privacy).append($user).append($deactivation).append($policy).append($breach).append($contact);
+$summary.append($title).append($hipaa).append($use).append($yourId).append($yourNonId).append($store).append($encryption).append($privacy).append($user).append($deactivation).append($policy).append($breach).append($contact);
 // $summary.css({'background': 'beige', 'width': '400px', 'font-size': '13px'});
 // $('.animatedPreview h3').css({'font-weight': 'bold'});
 // $('.animatedPreview div').css({'margin': '10px'});

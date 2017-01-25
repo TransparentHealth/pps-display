@@ -10,6 +10,7 @@
 }
 
 * h3 {
+  font-size: 1.2em;
   text-align: left;
   padding: 10px;
   background-color: #F3A471;;
@@ -20,7 +21,7 @@
   background-color: #6E6F71;
   border-radius: 5px;
   display: inline-block;
-  margin-right: 20px;
+  margin-right: 10px;
   text-align: center;
   padding: 8px;
   color: #fff;
@@ -31,6 +32,24 @@
   display: inline-block;
   border-bottom: 2px solid #6E6F71;
   margin-bottom: 5px;
+}
+
+header {
+  //background-color: #6E6F71;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 5px;
+  height: 80px;
+  top: 0;
+
+  p {
+    padding: 10px 20px;
+    border: 2px solid #fff;
+    color: #fff;
+    font-size: 2em;
+  }
 }
 
 
@@ -61,6 +80,7 @@
 
   .hipaa-info, .use-info {
     box-shadow: none;
+    padding: 5px;
   }
 }
 
@@ -72,4 +92,8 @@
   .share-info, .sell-info {
     box-shadow: none;
   }
+}
+
+.data-storage {
+  width: 40%;
 }
