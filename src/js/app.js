@@ -72,7 +72,7 @@ var mpnData =
         // Summary Title
         var $title = $('<header><h1>Model Privacy Notice</h1></header>');
         // HIPAA Info
-        var $hipaa = $('<div class="hipaa-container"></div>');
+        var $hipaa = $('<div class="mpn-hipaa-container"></div>');
         var $hipaaInfo = $('<div class="hipaa-info"></div>');
         function noWithJson(json) {
           var no = '<div class="answer" id="no"><i class="test">&#10008</i><h2>' + json + '</h2></div>';
@@ -97,7 +97,7 @@ var mpnData =
             $hipaaInfo.append('<p>The developer of this product is not a HIPAA covered entity.</p>');
         }
         // Data Usage Info
-        var $use = $('<div class="use-container"></div>');
+        var $use = $('<div class="mpn-use-container"></div>');
         var $useInfo = $('<div class="use-info"></div>');
         $use.append("<h3>Use:</h3>");
         $use.append($useInfo);
@@ -125,7 +125,7 @@ var mpnData =
         $useInfo.append("</ul>");
 
         // Identifiable data share/sell
-        var $yourId = $('<div class="id-container"></div>');
+        var $yourId = $('<div class="mpn-id-container"></div>');
         var $yourIdShare = $('<div class="id-share"></div>');
         var $yourIdSell = $('<div class="id-sell"></div>');
         var $idShareInfo = $('<div class="share-info"></div>');
@@ -139,7 +139,6 @@ var mpnData =
             $yourIdShare.append($idShareInfo);
             $idShareInfo.append('<p>We DO NOT share your identifiable data</p>');
         } else {
-            //TEST CHECK MARK!!!!!!!!!!!!!!!!!!!
             $yourIdShare.append($yesWithoutJson);
             $yourIdShare.append($idShareInfo);
             $idShareInfo.append("<h5>We share your data:</h5>");
@@ -175,7 +174,7 @@ var mpnData =
         }
 
         // Non Id share/sell
-        var $yourNonId = $('<div class="nonId-container"></div>');
+        var $yourNonId = $('<div class="mpn-nonId-container"></div>');
         var $yourNonIdShare = $('<div class="id-share"></div>');
         var $yourNonIdSell = $('<div class="id-sell"></div>');
         var $nonIdShareInfo = $('<div class="share-info"></div>');
@@ -226,7 +225,7 @@ var mpnData =
         $nonIdSellInfo.append("<p>(note that remaining data may still not be completely anonymous)</p>");
 
         // Data Encryption Info
-        var $encryption = $('<div class="encryption"></div>');
+        var $encryption = $('<div class="mpn-encryption-container"></div>');
         var $encryptionLocal = $('<div class="encrypt-local"></div>');
         var $encryptionServer = $('<div class="encrypt-third"></div>');
         var $encryptionTransmit = $('<div class="encrypt-trans"></div>');
@@ -268,7 +267,7 @@ var mpnData =
         }
 
         // Data Storing Info
-        var $store = $('<div class="data-storage"></div>');
+        var $store = $('<div class="mpn-data-storage-container"></div>');
         var $local = $('<div class="local-storage"></div>');
         var $third = $('<div class="third-storage"></div>');
         $store.append("<h3>Data Storage:</h3>");
@@ -288,7 +287,7 @@ var mpnData =
         }
 
         // User Options Info
-        var $user = $('<div class="user-access"></div>');
+        var $user = $('<div class="mpn-user-access-container"></div>');
         var $userQuestion = $('<div class="user-question"></div>');
         var $userOptions = $('<div class="user-options"></div>');
         $user.append("<h3>User Options:</h3>");
@@ -314,106 +313,124 @@ var mpnData =
         }
 
         // Privacy Info
-        var $privacy = $('<div></div>');
+        var $privacy = $('<div class="mpn-privacy-container"></div>');
+        var $privacyAccess = $('<div class="privacy-access"></div>');
+        var $privacyAccessInfo = $('<div class="privacy-access-info"></div>');
+        var $privacySocial = $('<div class="privacy-social"></div>');
         $privacy.append("<h3>Privacy:</h3>");
-        $privacy.append("<p>Will our product request access to other device data or applications, such as your camera, photos, or contacts?</p>");
+        $privacy.append($privacyAccess);
+        $privacyAccess.append("<h4>Will we request access to other device data or applications?</h4>");
         if (mpnData.privacy.requestPermissions === 'Yes') {
-            $privacy.append('<p>Yes: </p>');
+            $privacyAccess.append($yesWithoutJson);
+            $privacy.append($privacyAccessInfo);
+            $privacyAccessInfo.append('<h5>We will request access to:</h5>')
             if (mpnData.privacy.camera) {
-                $privacy.append('<p>Camera</p>');
+                $privacyAccessInfo.append('<p>Camera</p>');
             }
             if (mpnData.privacy.photos) {
-                $privacy.append('<p>Photos</p>');
+                $privacyAccessInfo.append('<p>Photos</p>');
             }
             if (mpnData.privacy.contact) {
-                $privacy.append('<p>Contacts</p>');
+                $privacyAccessInfo.append('<p>Contacts</p>');
             }
             if (mpnData.privacy.location) {
-                $privacy.append('<p>Location Services</p>');
+                $privacyAccessInfo.append('<p>Location Services</p>');
             }
             if (mpnData.privacy.microphone) {
-                $privacy.append('<p>Microphone</p>');
+                $privacyAccessInfo.append('<p>Microphone</p>');
             }
             if (mpnData.privacy.health) {
-                $privacy.append('<p>Health monitoring devices</p>');
+                $privacyAccessInfo.append('<p>Health monitoring devices</p>');
             }
             if (mpnData.privacy.other) {
-                $privacy.append('<p>' + mpnData.privacy.otherDescription + '</p>');
+                $privacyAccessInfo.append('<p>' + mpnData.privacy.otherDescription + '</p>');
             }
         } else if (mpnData.privacy.requestPermissions === 'No') {
-            $privacy.append('<p>No</p>');
+            $privacy.append($noWithoutJson);
         }
-        $privacy.append("<p>Does your product share the user's data with social media accounts, like Facebook?</p>");
-        if (mpnData.privacy.socialMedia) {
-            $privacy.append('<p>' + mpnData.privacy.socialMedia + '</p>');
+        $privacy.append($privacySocial);
+        $privacySocial.append("<h4>Do we share your data with social media accounts (eg.Facebook)?</h4>");
+        if (mpnData.privacy.socialMedia === 'Yes') {
+            $privacySocial.append($yesWithoutJson);
+        } else if (mpnData.privacy.socialMedia === 'Yes, only with your permission') {
+          $privacySocial.append($yesWithoutJson + '<p>Only with your permission</p>');
+        } else {
+          $privacySocial.append($noWithoutJson);
         }
 
         // Deactivation Info
-        var $deactivation = $('<div></div>');
-        $deactivation.append("<h3>Deactivation: What happens to your data when your account is deactivated</h3>");
-        $deactivation.append("<p>When your account is deactivated/terminated (by you or by the company), your data is…</p>");
+        var $deactivation = $('<div class="mpn-deactivation-container"></div>');
+        var $deactivationInfo = $('<div class="deactivation-info"></div>');
+        $deactivation.append("<h3>Deactivation:</h3>");
+        $deactivation.append($deactivationInfo);
+         var $deactivationStatement =("<p>When your account is deactivated/terminated (by you or by the company), your data is&nbsp");
         if (mpnData.deactivation.action) {
             switch (mpnData.deactivation.action) {
                 case "deleteImmediately":
-                    $deactivation.append("<p>Deleted Immediately</p>");
+                    $deactivationInfo.append($deactivationStatement + "deleted Immediately</p>");
                     break;
                 case "deleteAfterXYears":
-                    $deactivation.append("<p>Deleted After " + mpnData.deactivation.numYears + " years</p>");
+                    $deactivationInfo.append($deactivationStatement + "deleted After " + mpnData.deactivation.numYears + " years</p>");
                     break;
                 case "neverDelete":
-                    $deactivation.append("<p>Permanently retained and used</p>");
+                    $deactivationInfo.append($deactivationStatement + "permanently retained and used</p>");
                     break;
                 case "deleteOnRequest":
-                    $deactivation.append("<p>Retained and used until the user requests deletion</p>");
+                    $deactivationInfo.append($deactivationStatement + "retained and used until the user requests deletion</p>");
                     break;
             }
         }
         // Policy Info
-        var $policy = $('<div></div>');
-        $policy.append("<h3>Policy Changes: How we will notify you if our privacy policy changes</h3>");
+        var $policy = $('<div class="mpn-policy-container"></div>');
+        var $policyInfo = $('<div class="policy-info"></div>');
+        $policy.append("<h3>Policy Changes:</h3>");
+        $policy.append($policyInfo);
+        $policyInfo.append('<h5>How we will notify you if our privacy policy changes:</h5>')
         if (mpnData.policy.notificationMethod) {
             var $formText = $('<p>').text(mpnData.policy.notificationMethod);
-            $policy.append($formText);
+            $policyInfo.append($formText);
         }
         // Breach Info
-        var $breach = $('<div></div>');
-        $breach.append("<h3>Breach: How we will notify you and protect your data in case of an improper disclosure</h3>");
+        var $breach = $('<div class="mpn-breach-container"></div>');
+        var $breachInfo = $('<div class="breach-info"></div>');
+        $breach.append("<h3> Data Breach:</h3>");
+        $breach.append($breachInfo);
+        $breachInfo.append('<h5>How we will notify you and protect your data in case of an improper disclosure:</h5>')
         if (mpnData.breach.procedure) {
-            var $formText = $('<p>').text(mpnData.breach.procedure);
-            $breach.append($formText);
+            var $formText = mpnData.breach.procedure;
+            $breachInfo.append('<p>' + $formText + '</p>');
         }
         // Contact Info
-        var $contact = $('<div></div>');
-        $contact.append("<h3>Contact Information</h3>");
+        var $contact = $('<div class="mpn-contact-container"></div>');
+        var $contactInfo = $('<div class="contact-info"></div>');
+        $contact.append("<h3>Contact Information:</h3>");
+        $contact.append($contactInfo);
         if (mpnData.contact.name) {
             var $formText = $('<p>').text("Name: " + mpnData.contact.name);
-            $contact.append($formText);
+            $contactInfo.append($formText);
         }
         if (mpnData.contact.privacyPolicy) {
             var $formText = $('<p>').text("Link to full privacy policy: " + mpnData.contact.privacyPolicy);
-            $contact.append($formText);
+            $contactInfo.append($formText);
         }
         if (mpnData.contact.onlineComments) {
             var $formText = $('<p>').text("Link to Online Comment/Contact Form: " + mpnData.contact.onlineComments);
-            $contact.append($formText);
+            $contactInfo.append($formText);
         }
         if (mpnData.contact.email) {
             var $formText = $('<p>').text("Email Address: " + mpnData.contact.email);
-            $contact.append($formText);
+            $contactInfo.append($formText);
         }
         if (mpnData.contact.phone) {
             var $formText = $('<p>').text("Phone Number: " + mpnData.contact.phone);
-            $contact.append($formText);
+            $contactInfo.append($formText);
         }
         if (mpnData.contact.address) {
             var $formText = $('<p>').text("Address: " + mpnData.contact.address);
-            $contact.append($formText);
+            $contactInfo.append($formText);
         }
         // Compile all summary sections
         $summary.append($title).append($hipaa).append($use).append($yourId).append($yourNonId).append($encryption).append($store).append($user).append($privacy).append($deactivation).append($policy).append($breach).append($contact);
-        // $summary.css({'background': 'beige', 'width': '400px', 'font-size': '13px'});
-        // $('.animatedPreview h3').css({'font-weight': 'bold'});
-        // $('.animatedPreview div').css({'margin': '10px'});
     }
 
     createDisplay();
