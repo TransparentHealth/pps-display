@@ -12,7 +12,8 @@
   margin: 0 0;
   justify-content: center;
   border: none;
-
+  width: 100%;
+  overflow: hidden;
 
 
   * p {
@@ -27,7 +28,6 @@
   font-family:  $tinos;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
-
 }
 
 * h4 {
@@ -36,7 +36,6 @@
   font-size: 1em;
   display: inline-block;
   font-family: $roboto;
-  margin-right: 10px;
   text-align: center;
   padding: 8px;
   color: #fff;
@@ -48,8 +47,6 @@
 * h5 {
   display: inline-block;
   font-style: italic;
-  //font-weight: 500;
-  //border-bottom: 2px solid $darkGray;
   margin-bottom: 5px;
   font-family:  $roboto;
 }
@@ -58,24 +55,59 @@ header {
   display: flex;
   align-items: center;
   width: 100%;
-  justify-content: center;
   margin-bottom: 5px;
   height: 80px;
   top: 0;
   font-family: $playfair;
 
   h1 {
+    margin: 0 auto;
     padding: 10px 20px;
     border: 2px solid #fff;
+    display: inline-block;
     color: #fff;
     font-size: 2em;
     -webkit-box-shadow: 2px 2px 20px -3px #bbb;
     -moz-box-shadow: 2px 2px 20px -3px #bbb;
     box-shadow: 2px 2px 20px -3px #bbb;
   }
+
+  #mpn-contact-anchor {
+      position: absolute;
+      left: 85%;
+      border: 2px solid #fff;
+      color: #fff;
+      font-size: 1.2em;
+      padding: 7px 14px;
+      transition: .3s ease;
+
+      &:hover {
+        border: 2px solid $darkGray;
+        color: $darkGray;
+      }
+
+  }
+
 }
 
-
+#scrollUp {
+  height: 40px;
+  width: 40px;
+  border: 2px solid $darkGray;
+  color: $darkGray;
+  position: fixed;
+  top: 80%;
+  left: 85%;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: .5;
+  -ms-transform: rotate(270deg); /* IE 9 */
+    -webkit-transform: rotate(270deg); /* Chrome, Safari, Opera */
+    transform: rotate(270deg);
+    display: none;
+}
 
 .answer {
 
@@ -89,6 +121,7 @@ header {
   align-content: center;
   font-family: $roboto;
   height: 33px;
+  margin-left: 10px;
   width: 90px;
   i {
     border-right: 2px solid #fff;
@@ -133,6 +166,10 @@ header {
   .hipaa-info {
     font-size: 1.2em;
   }
+  .use-info {
+    line-height: 20px;
+
+  }
 }
 
 .mpn-id-container, .mpn-nonId-container {
@@ -151,11 +188,12 @@ header {
   .share-info, .sell-info {
     box-shadow: none;
     padding: 5px;
+    line-height: 20px;
   }
 }
 
 .mpn-data-storage-container {
-  width: 62%;
+  width: 74%;
   border-radius: 3px;
   @extend .mpn-container-styles;
 
@@ -193,13 +231,18 @@ header {
 }
 
 .mpn-user-access-container {
-  width: 34%;
+  width: 22%;
   border-radius: 3px;
   @extend .mpn-container-styles;
 
   .user-question, .user-options {
     box-shadow: none;
     padding: 5px;
+    line-height: 20px;
+  }
+
+  #user-qid {
+    text-align: center;
   }
 }
 
@@ -219,6 +262,7 @@ header {
   .privacy-access-info {
     box-shadow: none;
     padding: 5px;
+    line-height: 20px;
   }
 
   .privacy-social {
@@ -278,5 +322,65 @@ header {
   .contact-info {
     box-shadow: none;
     padding: 5px;
+    line-height: 25px;
+    font-family: $roboto;
+
+    p {
+      display: inline;
+      color: $darkGray;
+    }
+    i {
+      font-size: 1.1em;
+    }
   }
+}
+
+@media only screen and (max-width : 865px) {
+.mpn-deactivation-container {
+  .deactivation-info {
+    font-size: 1em;
+  }
+}
+
+}
+
+@media only screen and (max-width : 780px) {
+  .mpn-id-container, .mpn-nonId-container {
+  width: 97%;
+}
+.mpn-contact-container {
+  width: 97%;
+}
+}
+
+@media only screen and (max-width : 690px) {
+  .mpn-hipaa-container, .mpn-use-container, .mpn-contact-container, .mpn-breach-container, .mpn-privacy-container, .mpn-policy-container, .mpn-deactivation-container, .mpn-user-access-container, .mpn-data-storage-container {
+    width: 97%;
+  }
+
+  .animatedPreview {
+
+    #scrollUp {
+      display: inherit;
+    }
+    header {
+      height: 50px;
+      h1 {
+        font-size: 1em;
+      }
+
+      #mpn-contact-anchor {
+        position: inherit;
+        margin-right: 15px;
+        font-size: 1em;
+      }
+    }
+  .answer {
+    margin-left: 5px;
+    width: 80px;
+     h2 {
+       font-size: 1em;
+     }
+  }
+}
 }
