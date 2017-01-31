@@ -93,7 +93,8 @@ header {
 #scrollUp {
   height: 40px;
   width: 40px;
-  border: 2px solid $darkGray;
+  border: 3px solid $darkGray;
+  border-radius: 3px;
   color: $darkGray;
   position: fixed;
   top: 80%;
@@ -103,9 +104,9 @@ header {
   align-items: center;
   justify-content: center;
   opacity: .5;
-  -ms-transform: rotate(270deg); /* IE 9 */
-    -webkit-transform: rotate(270deg); /* Chrome, Safari, Opera */
-    transform: rotate(270deg);
+  -ms-transform: rotate(90deg); /* IE 9 */
+    -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+    transform: rotate(90deg);
     display: none;
 }
 
@@ -144,6 +145,25 @@ header {
   background-color: $red;
 }
 }
+
+.idShareHide, .idSellHide, .nonShareHide, .nonSellHide, .privacyHide {
+  display: none;
+}
+
+.mpn-button {
+   width: 100%;
+   margin-left: 10px;
+   text-align: center;
+   p {
+     color: $darkGray;
+     padding: 3px;
+     width: 60px;
+     border: 2px solid $darkGray;
+     border-radius: 3px;
+     font-size: 1em;
+   }
+}
+
 
 .mpn-container-styles {
   margin: 5px;

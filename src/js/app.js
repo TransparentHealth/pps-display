@@ -72,7 +72,7 @@ var mpnData =
         // Summary Title
         var $header = $('<header></header>');
         var $title = $('<h1>Model Privacy Notice</h1>');
-        var $scrollUp = $('<div id="scrollUp">&#8702</div>');
+        var $scrollUp = $('<div id="scrollUp">&#10094</div>');
         var $contactScroll = $('<p id="mpn-contact-anchor">Contact</p>');
         $header.append($title).append($contactScroll);
 
@@ -137,18 +137,22 @@ var mpnData =
         var $yourId = $('<div class="mpn-id-container"></div>');
         var $yourIdShare = $('<div class="id-share"></div>');
         var $yourIdSell = $('<div class="id-sell"></div>');
-        var $idShareInfo = $('<div class="share-info"></div>');
-        var $idSellInfo = $('<div class="sell-info"></div>');
+        var $idShareInfo = $('<div class="share-info idShareHide"></div>');
+        var $idSellInfo = $('<div class="sell-info idSellHide"></div>');
+        var $idSellButton = $('<div class="mpn-button"><p class="idSell-button">more &#8595</p></div>');
+        var $idShareButton = $('<div class="mpn-button"><p class="idShare-button">more &#8595</p></div>');
         $yourId.append("<h3>Your Identifiable Data:</h3>");
         $yourId.append($yourIdShare);
         $yourId.append($yourIdSell);
         $yourIdShare.append('<h4>Do we share your indentifiable data?</h4>');
         if (mpnData.share.noneWithId) {
             $yourIdShare.append($noWithoutJson);
+            $yourIdShare.append($idShareButton);
             $yourIdShare.append($idShareInfo);
             $idShareInfo.append('<p>We DO NOT share your identifiable data</p>');
         } else {
             $yourIdShare.append($yesWithoutJson);
+            $yourIdShare.append($idShareButton);
             $yourIdShare.append($idShareInfo);
             $idShareInfo.append("<h5>We share your data:</h5>");
             if (mpnData.share.primaryServiceWithId) {
@@ -169,15 +173,19 @@ var mpnData =
         }
         $yourIdSell.append('<h4>Do we sell your identifiable data?</h4>');
         if (mpnData.sell.dataWithId === "Yes") {
+           $yourIdSell.append($idSellButton);
             $yourIdSell.append(yesWithJson(mpnData.sell.dataWithId));
             $yourIdSell.append($idSellInfo);
+            $yourIdSell.append($idSellButton);
             $idSellInfo.append("<p>We sell your identifiable data to data brokers, marketing, advertising networks, or analytics firms.</p>");
         } else if (mpnData.sell.dataWithId === "Yes. With your permission,") {
+            $yourIdSell.append($idSellButton);
             $yourIdSell.append($yesWithoutJson);
             $yourIdSell.append($idSellInfo);
             $$idSellInfo.append("<p>With your permission, we sell your identifiable data to data brokers, marketing, advertising networks, or analytics firms.</p>");
         } else {
             $yourIdSell.append(noWithJson(mpnData.sell.dataWithId));
+            $yourIdSell.append($idSellButton);
             $yourIdSell.append($idSellInfo);
             $idSellInfo.append("<p>We do not sell your identifiable data to data brokers, marketing, advertising networks, or analytics firms.</p>");
         }
@@ -186,18 +194,22 @@ var mpnData =
         var $yourNonId = $('<div class="mpn-nonId-container"></div>');
         var $yourNonIdShare = $('<div class="id-share"></div>');
         var $yourNonIdSell = $('<div class="id-sell"></div>');
-        var $nonIdShareInfo = $('<div class="share-info"></div>');
-        var $nonIdSellInfo = $('<div class="sell-info"></div>');
+        var $nonIdShareInfo = $('<div class="share-info nonShareHide"></div>');
+        var $nonIdSellInfo = $('<div class="sell-info nonSellHide"></div>');
+        var $nonIdSellButton = $('<div class="mpn-button"><p class="nonIdSell-button">more &#8595</p></div>');
+        var $nonIdShareButton = $('<div class="mpn-button"><p class="nonIdShare-button">more &#8595</p></div>');
         $yourNonId.append("<h3>Your Non-Identifiable Data:</h3>");
         $yourNonId.append($yourNonIdShare);
         $yourNonId.append($yourNonIdSell);
         $yourNonIdShare.append('<h4>Do we share your non-identifiable data?</h4>');
         if (mpnData.share.noneNoId) {
             $yourNonIdShare.append($noWithoutJson);
+            $yourNonIdShare.append($nonIdShareButton);
             $yourNonIdShare.append($nonIdShareInfo);
             $nonIdShareInfo.append('<p>We DO NOT share your data after removing identifiers</p>');
         } else {
             $yourNonIdShare.append($yesWithoutJson);
+            $yourNonIdShare.append($nonIdShareButton);
             $yourNonIdShare.append($nonIdShareInfo);
             $nonIdShareInfo.append("<h5>We share your data AFTER removing identifiers:</h5>");
             if (mpnData.share.primaryServiceNoId) {
@@ -219,14 +231,17 @@ var mpnData =
         $yourNonIdSell.append('<h4>Do we sell your non-identifiable data?</h4>');
         if (mpnData.sell.dataNoId === "Yes") {
             $yourNonIdSell.append(yesWithJson(mpnData.sell.dataNoId));
+            $yourNonIdSell.append($nonIdSellButton);
             $yourNonIdSell.append($nonIdSellInfo);
             $nonIdSellInfo.append("<p>We sell your data AFTER removing identifiers to data brokers, marketing, advertising networks, or analytics firms.</p>");
         } else if (mpnData.sell.dataNoId === "Yes. With your permission,") {
             $yourNonIdSell.append($yesWithoutJson);
+            $yourNonIdSell.append($nonIdSellButton);
             $yourNonIdSell.append($nonIdSellInfo);
             $nonIdSellInfo.append("<p>With your permission, we sell your data AFTER removing identifiers to data brokers, marketing, advertising networks, or analytics firms.</p>");
         } else {
             $yourNonIdSell.append(noWithJson(mpnData.sell.dataNoId));
+            $yourNonIdSell.append($nonIdSellButton);
             $yourNonIdSell.append($nonIdSellInfo);
             $nonIdSellInfo.append("<p>We do not sell your data AFTER removing identifiers to data brokers, marketing, advertising networks, or analytics firms.</p>");
         }
@@ -324,13 +339,15 @@ var mpnData =
         // Privacy Info
         var $privacy = $('<div class="mpn-privacy-container"></div>');
         var $privacyAccess = $('<div class="privacy-access"></div>');
-        var $privacyAccessInfo = $('<div class="privacy-access-info"></div>');
+        var $privacyAccessInfo = $('<div class="privacy-access-info  privacyHide"></div>');
         var $privacySocial = $('<div class="privacy-social"></div>');
+        var $privacyButton = $('<div class="mpn-button"><p class="privacy-button">more &#8595</p></div>');
         $privacy.append("<h3>Privacy:</h3>");
         $privacy.append($privacyAccess);
         $privacyAccess.append("<h4>Will we request access to other device data or applications?</h4>");
         if (mpnData.privacy.requestPermissions === 'Yes') {
             $privacyAccess.append($yesWithoutJson);
+            $privacyAccess.append($privacyButton);
             $privacy.append($privacyAccessInfo);
             $privacyAccessInfo.append('<h5>We will request access to:</h5>')
             if (mpnData.privacy.camera) {
@@ -356,6 +373,7 @@ var mpnData =
             }
         } else if (mpnData.privacy.requestPermissions === 'No') {
             $privacy.append($noWithoutJson);
+            $privacyAccess.append($privacyButton);
         }
         $privacy.append($privacySocial);
         $privacySocial.append("<h4>Do we share your data with social media accounts (eg.Facebook)?</h4>");
@@ -460,6 +478,43 @@ var mpnData =
         $("html, body").animate({
             scrollTop: 0
         }, 600);
+});
+
+
+function ToggleHide(target, button) {
+      textArrow(button)
+			if ($(target).is(":hidden")) {
+				$(target).slideDown("slow");
+			} else {
+				$(target).slideUp("slow");
+			}
+  return false;
+}
+
+function textArrow(target) {
+  $(target).toggleClass("active");
+  if ($(target).hasClass("active")) {
+    $(target).html("Less &#8593");
+  } else {
+    $(target).html("More &#8595");
+  }
+}
+
+
+$(document).on("click", ".idShare-button", function() {
+  ToggleHide(".idShareHide", ".idShare-button");
+});
+$(document).on("click", ".idSell-button", function() {
+  ToggleHide(".idSellHide", ".idSell-button");
+});
+$(document).on("click", ".nonIdSell-button", function() {
+  ToggleHide(".nonSellHide", ".nonIdSell-button");
+});
+$(document).on("click", ".nonIdShare-button", function() {
+  ToggleHide(".nonShareHide", ".nonIdShare-button");
+});
+$(document).on("click", ".privacy-button", function() {
+  ToggleHide(".privacyHide", ".privacy-button");
 });
 
     createDisplay();
