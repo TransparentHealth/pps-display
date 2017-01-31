@@ -94,7 +94,7 @@ header {
   height: 40px;
   width: 40px;
   border: 3px solid $darkGray;
-  border-radius: 3px;
+  border-radius: 30%;
   color: $darkGray;
   position: fixed;
   top: 80%;
@@ -153,6 +153,7 @@ header {
 .mpn-button {
    width: 100%;
    margin-left: 10px;
+   margin-top: 5px;
    text-align: center;
    p {
      color: $darkGray;
@@ -161,6 +162,11 @@ header {
      border: 2px solid $darkGray;
      border-radius: 3px;
      font-size: 1em;
+
+     &:hover {
+       border: 2px solid  black;
+       color: black;
+     }
    }
 }
 
