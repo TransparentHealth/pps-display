@@ -75,7 +75,8 @@ function createDisplay() {
     var $title = $('<h1>Model Privacy Notice</h1>');
     var $scrollUp = $('<div id="scrollUp">&#10094</div>');
     var $contactScroll = $('<p id="mpn-contact-anchor">Contact</p>');
-    $header.append($title).append($contactScroll);
+    var $download = $('<a href="src/js/app.js" download="Download">Download</a>');
+    $header.append($download).append($title).append($contactScroll);
 
     // HIPAA Info
     var $hipaa = $('<div class="mpn-hipaa-container"></div>');
@@ -254,7 +255,7 @@ function createDisplay() {
     var $encryptionTransmit = $('<div class="encrypt-trans"></div>');
     var yesDefault = "Yes, by default";
     var yesSteps = "Yes, when you take certain steps";
-    $encryption.append("<h3>Encryption: How we encrypt your data</h3>");
+    $encryption.append("<h3>Encryption:</h3>");
     $encryption.append($encryptionLocal);
     $encryptionLocal.append("<h4>Do we encrypt your data within your device or app?</h4>");
     if (mpnData.encryption.device === yesDefault) {
@@ -438,12 +439,12 @@ function createDisplay() {
     }
     if (mpnData.contact.privacyPolicy) {
         var $formTitle = $('<i class-"contact-title">').text("Link to full privacy policy: ")
-        var $formText = $('<p>').text(mpnData.contact.privacyPolicy);
+        var $formText = $('<a>').text(mpnData.contact.privacyPolicy);
         $contactInfo.append($formTitle).append($formText).append('<br>');
     }
     if (mpnData.contact.onlineComments) {
         var $formTitle = $('<i class-"contact-title">').text("Link to Online Comment/Contact Form:  ")
-        var $formText = $('<p>').text(mpnData.contact.onlineComments);
+        var $formText = $('<a>').text(mpnData.contact.onlineComments);
         $contactInfo.append($formTitle).append($formText).append('<br>');
     }
     if (mpnData.contact.email) {
@@ -465,21 +466,23 @@ function createDisplay() {
     $summary.append($header).append($scrollUp).append($hipaa).append($use).append($yourId).append($yourNonId).append($encryption).append($store).append($user).append($privacy).append($deactivation).append($policy).append($breach).append($contact);
 }
 
+// Event listeners
+  // Contact Button
 $(document).on("click", "#mpn-contact-anchor", function(event) {
     event.preventDefault();
     $("body, html").animate({
         scrollTop: $('.mpn-contact-container').offset().top
     }, 600);
 });
-
+  // Mobile scroll up button
 $(document).on("click", "#scrollUp", function(event) {
     //event.preventDefault();
     $("html, body").animate({
         scrollTop: 0
     }, 600);
 });
-
-function ToggleHide(target, button) {
+  // checks if "info" section has display: none. toggles betweeen hide/show
+function toggleHide(target, button) {
     textArrow(button)
     if ($(target).is(":hidden")) {
         $(target).slideDown();
@@ -488,7 +491,7 @@ function ToggleHide(target, button) {
     }
     return false;
 }
-
+  // More/Less button active class toggle
 function textArrow(target) {
     $(target).toggleClass("active");
     if ($(target).hasClass("active")) {
@@ -497,21 +500,21 @@ function textArrow(target) {
         $(target).html("More &#8595");
     }
 }
-
+   // More/Less button listeners
 $(document).on("click", ".idShare-button", function() {
-    ToggleHide(".idShareHide", ".idShare-button");
+    toggleHide(".idShareHide", ".idShare-button");
 });
 $(document).on("click", ".idSell-button", function() {
-    ToggleHide(".idSellHide", ".idSell-button");
+    toggleHide(".idSellHide", ".idSell-button");
 });
 $(document).on("click", ".nonIdSell-button", function() {
-    ToggleHide(".nonSellHide", ".nonIdSell-button");
+    toggleHide(".nonSellHide", ".nonIdSell-button");
 });
 $(document).on("click", ".nonIdShare-button", function() {
-    ToggleHide(".nonShareHide", ".nonIdShare-button");
+    toggleHide(".nonShareHide", ".nonIdShare-button");
 });
 $(document).on("click", ".privacy-button", function() {
-    ToggleHide(".privacyHide", ".privacy-button");
+    toggleHide(".privacyHide", ".privacy-button");
 });
 
 createDisplay();

@@ -1,6 +1,16 @@
 
-@import "partials/setup/reset";
-@import "partials/setup/variables";
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display+SC|Roboto+Condensed|Tinos');
+//Colors
+$orange: #F3A471;
+$darkGray: #6E6F71;
+$lightGray: #c3ccd5;
+$green:  #A0C2BB;
+$red: #F07464;
+
+//fonts
+$playfair:  'Playfair Display SC', serif;
+$roboto:  'Roboto Condensed', sans-serif;
+$tinos: 'Tinos', serif;
 
 
 .animatedPreview {
@@ -15,6 +25,58 @@
   width: 100%;
   overflow: hidden;
 
+  ///////////Reset
+
+  html, body, div, span, applet, object, iframe,
+  h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+  a, abbr, acronym, address, big, cite, code,
+  del, dfn, em, img, ins, kbd, q, s, samp,
+  small, strike, strong, sub, sup, tt, var,
+  b, u, i, center,
+  dl, dt, dd, ol, ul, li,
+  fieldset, form, label, legend,
+  table, caption, tbody, tfoot, thead, tr, th, td,
+  article, aside, canvas, details, embed,
+  figure, figcaption, footer, header, hgroup,
+  menu, nav, output, ruby, section, summary,
+  time, mark, audio, video {
+  	margin: 0;
+  	padding: 0;
+  	border: 0;
+  	font-size: 100%;
+  	font: inherit;
+  	vertical-align: baseline;
+  }
+  body {
+  	height: 100vh;
+  	line-height: 1;
+  	width: 100vw;
+  }
+  ol, ul {
+  	list-style: none;
+  }
+  blockquote, q {
+  	quotes: none;
+  }
+  blockquote:before, blockquote:after,
+  q:before, q:after {
+  	content: '';
+  	content: none;
+  }
+  table {
+  	border-collapse: collapse;
+  	border-spacing: 0;
+  }
+  *, *:before, *:after {
+    box-sizing: border-box;
+  }
+
+  a {
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+///////////End  of reset
 
   * p {
     font-family: $roboto;
@@ -71,6 +133,8 @@ header {
     -moz-box-shadow: 2px 2px 20px -3px #bbb;
     box-shadow: 2px 2px 20px -3px #bbb;
   }
+
+
 
   #mpn-contact-anchor {
       position: absolute;
@@ -144,7 +208,8 @@ header {
 #no {
   background-color: $red;
 }
-}
+
+
 
 .idShareHide, .idSellHide, .nonShareHide, .nonSellHide, .privacyHide {
   display: none;
@@ -263,12 +328,13 @@ header {
 
   .user-question, .user-options {
     box-shadow: none;
-    padding: 5px;
+    padding: 10px;
     line-height: 20px;
   }
 
   #user-qid {
     text-align: center;
+    padding-bottom: 0px;
   }
 }
 
@@ -384,6 +450,12 @@ header {
     width: 97%;
   }
 
+  .mpn-user-access-container {
+    #user-qid {
+      text-align: left;
+    }
+  }
+
   .animatedPreview {
 
     #scrollUp {
@@ -409,4 +481,6 @@ header {
      }
   }
 }
+}
+
 }
