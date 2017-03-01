@@ -173,12 +173,13 @@ header {
   position: fixed;
   left: 0;
   bottom: 0;
-  height: 30px;
+  height: 35px;
   width: 100%;
   background-color: $darkGray;
   color: #fff;
   font-size: 20px;
   opacity: .8;
+  padding-top: 4px;
   text-align: center;
   cursor: pointer;
   display: none;
