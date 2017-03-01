@@ -95,7 +95,6 @@ $tinos: 'Tinos', serif;
 
 h4 {
   display: flex;
-  justify-content: center;
   font-size: 1.2em;
   padding: 0 10px;
 }
@@ -192,6 +191,9 @@ header {
   flex-wrap: nowrap;
   align-content: center;
   font-family: $roboto;
+  h4 {
+    width: 60%;
+  }
 }
 
 .alert {
