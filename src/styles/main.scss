@@ -172,7 +172,7 @@ header {
 #scrollUp {
   position: fixed;
   left: 0;
-  bottom: 4px;
+  bottom: 10px;
   height: 40px;
   width: 100%;
   background-color: $darkGray;
@@ -491,7 +491,7 @@ cursor: pointer;
 
     .key-item {
       &:first-child{
-        margin-left: 4px;
+        margin-left: 20px;
       }
       &:last-child {
         margin-top: 10px;
