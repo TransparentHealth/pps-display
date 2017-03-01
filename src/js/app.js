@@ -488,10 +488,10 @@ $(window).scroll(function() {
       $('.key-item').removeClass('active');
     }
     //mobile scroll to top button
-    if(height  >  500 && width < 500) {
+    if(height  >  650 && width < 500) {
       $("#scrollUp").css('display', 'inherit');
     }
-    if(height < 501 && width < 500) {
+    if(height < 500 && width < 500) {
       $("#scrollUp").css('display', 'none');
     }
 });
