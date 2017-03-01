@@ -172,14 +172,14 @@ header {
 #scrollUp {
   position: fixed;
   left: 0;
-  bottom: 10px;
-  height: 40px;
+  bottom: 0;
+  height: 50px;
   width: 100%;
   background-color: $darkGray;
   color: #fff;
   font-size: 20px;
   opacity: .8;
-  padding-top: 7px;
+  padding-top: 10px;
   text-align: center;
   cursor: pointer;
   display: none;
