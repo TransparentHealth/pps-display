@@ -173,13 +173,13 @@ header {
   position: fixed;
   left: 0;
   bottom: 0;
-  height: 35px;
+  height: 40px;
   width: 100%;
   background-color: $darkGray;
   color: #fff;
   font-size: 20px;
   opacity: .8;
-  padding-top: 4px;
+  padding-top: 7px;
   text-align: center;
   cursor: pointer;
   display: none;
@@ -261,27 +261,6 @@ header {
 .idShareHide, .idSellHide, .nonShareHide, .nonSellHide, .privacyHide {
   display: none;
 }
-
-// .mpn-button {
-//    width: 100%;
-//    margin-left: 10px;
-//    margin-top: 5px;
-//    text-align: center;
-//    p {
-//      color: $darkGray;
-//      padding: 3px;
-//      width: 60px;
-//      border: 2px solid $darkGray;
-//      border-radius: 3px;
-//      font-size: 1em;
-//
-//      &:hover {
-//        border: 2px solid  black;
-//        color: black;
-//      }
-//    }
-// }
-
 
 .mpn-container-styles {
   width: 70%;
@@ -514,6 +493,9 @@ cursor: pointer;
       &:last-child {
         margin-top: 10px;
         margin-left: 35%;
+      }
+      &.active {
+        padding: 0 5px 0 5px;
       }
     }
     .alert {
