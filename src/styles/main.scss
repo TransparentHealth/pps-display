@@ -191,9 +191,6 @@ header {
   flex-wrap: nowrap;
   align-content: center;
   font-family: $roboto;
-  h4 {
-    //width: 75%;
-  }
 }
 
 .alert {
@@ -481,6 +478,9 @@ header {
 
 .mpn-hipaa-container, .mpn-use-container, .mpn-id-container, .mpn-nonId-container, .mpn-contact-container, .mpn-encryption-container, .mpn-breach-container, .mpn-privacy-container, .mpn-policy-container, .mpn-deactivation-container, .mpn-user-access-container, .mpn-data-storage-container {
   width: 97%;
+}
+html {
+cursor: pointer;
 }
 }
 
