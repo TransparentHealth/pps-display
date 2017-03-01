@@ -170,16 +170,17 @@ header {
 }
 
 #scrollUp {
+  border-radius: 5px;
   position: fixed;
-  left: 60%;
-  bottom: 10%;
+  left: 83%;
+  bottom: 20%;
   height: 50px;
-  width: 40%;
+  width: 50px;
   background-color: $darkGray;
   color: #fff;
-  font-size: 18px;
+  font-size: 25px;
   opacity: .7;
-  padding-top: 15px;
+  padding-top: 13px;
   text-align: center;
   cursor: pointer;
   display: none;
