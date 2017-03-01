@@ -479,19 +479,19 @@ $( document ).ready(function() {
 $(window).scroll(function() {
     var height = $(window).scrollTop();
     var width = $(window).width()
-
-    if (height  < 80 ) {
+    //header symbol animation
+     if (height  < 80 ) {
       $('.key-item').addClass('active');
     }
 
     if (height  > 100 ) {
       $('.key-item').removeClass('active');
     }
-
-    if(height  >  700 && width < 500) {
+    //mobile scroll to top button
+    if(height  >  500 && width < 500) {
       $("#scrollUp").css('display', 'inherit');
     }
-    if(height < 500 && width < 500) {
+    if(height < 501 && width < 500) {
       $("#scrollUp").css('display', 'none');
     }
 });
