@@ -2,11 +2,11 @@
 @import url('https://fonts.googleapis.com/css?family=Playfair+Display+SC|Roboto+Condensed|Tinos');
 
 //Colors
-$orange: #71a49a;
+$yellow:  #e4bc5c;
 $darkGray: #6E6F71;
 $lightGray:   #ebebeb;
-$green:  #A0C2BB;
-$red: #F07464;
+$green:  #90a3b2;
+$red: #d25131;
 
 //fonts
 $playfair:  'Playfair Display SC', serif;
@@ -17,6 +17,17 @@ $tinos: 'Tinos', serif;
 
 
   ///////////Reset
+ body {
+   margin: 0;
+ }
+///////////End  of reset
+
+.policyDisplay {
+  background-color: $lightGray;
+  padding: none;
+  border: none;
+  width: 100%;
+  overflow: hidden;
 
   html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -42,6 +53,7 @@ $tinos: 'Tinos', serif;
   	height: 100vh;
   	line-height: 1;
   	width: 100vw;
+
 
   }
   ol, ul {
@@ -69,14 +81,6 @@ $tinos: 'Tinos', serif;
     color: #a9361e;
   }
 
-///////////End  of reset
-
-.policyDisplay {
-  background-color: $lightGray;
-  padding: none;
-  border: none;
-  width: 100%;
-  overflow: hidden;
 
   * p {
     font-family: $roboto;
@@ -209,14 +213,14 @@ header {
   color: #fff;
 
 &.red {
-  background-color:  #d25131;
+  background-color:  $red;
 }
 &.green {
-  background-color: 	#90a3b2;
+  background-color: 	$green;
   font-size: .8em;
 }
 &.yellow {
-    background-color: #e4bc5c;
+    background-color:  $yellow;
 }
 &.pink {
     background-color: #f7cdbd;
@@ -267,7 +271,7 @@ header {
   width: 70%;
   margin: 0 auto;
   background-color: #fff;
-  margin-bottom: 3px;
+  margin-bottom: 5px;
 
 }
 
@@ -474,6 +478,10 @@ cursor: pointer;
 
   .policy-info, .breach-info {
     margin-top: 20px;
+  }
+
+  .mpn-container-styles {
+    margin-bottom: 6px;
   }
 
 }

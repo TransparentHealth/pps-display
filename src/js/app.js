@@ -454,7 +454,7 @@ function createDisplay() {
     }
     // Compile all summary sections
     $summary.append($header).append($scrollUp).append($hipaa).append($use).append($yourId).append($yourNonId).append($encryption).append($store).append($user).append($privacy).append($deactivation).append($policy).append($breach).append($contact);
-}
+
 
 // Event listeners
   // Contact Button
@@ -530,5 +530,6 @@ $(document).on("click", ".nonId-share", function() {
 $(document).on("click", ".privacy-access", function() {
     toggleHide(".privacyHide", ".privacy-arrow");
 });
+}
 
 createDisplay();
