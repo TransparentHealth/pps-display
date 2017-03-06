@@ -474,6 +474,29 @@ $(document).on("click", "#scrollUp", function(event) {
 
 $( document ).ready(function() {
     $('.key-item').addClass('active');
+    var width = parseInt($(".policyDisplay").css("width"));
+    if (width <= 850) {
+      $('.policyDisplay .mpn-deactivation-container .deactivation-info').css("font-size", "1em");
+    }
+    if (width <= 780){
+      $('.policyDisplay .mpn-hipaa-container, .policyDisplay .mpn-use-container, .policyDisplay .mpn-id-container, .policyDisplay .mpn-nonId-container, .policyDisplay .mpn-contact-container, .policyDisplay .mpn-encryption-container, .policyDisplay .mpn-breach-container, .policyDisplay .mpn-privacy-container, .policyDisplay .mpn-policy-container, .policyDisplay .mpn-deactivation-container, .policyDisplay .mpn-user-access-container, .policyDisplay .mpn-data-storage-container').css("width", "97%");
+      $('.policyDisplay html').css("cursor", "pointer");
+    }
+    if (width <= 550) {
+      $('.policyDisplay .policy-info, .policyDisplay .breach-info').css("margin-top", "20px");
+      $('.policyDisplay .mpn-container-styles, .policyDisplay .mpn-hipaa-container, .policyDisplay .mpn-use-container, .policyDisplay .mpn-id-container, .policyDisplay .mpn-nonId-container, .policyDisplay .mpn-data-storage-container, .policyDisplay .mpn-encryption-container, .policyDisplay .mpn-user-access-container, .policyDisplay .mpn-privacy-container, .policyDisplay .mpn-deactivation-container, .policyDisplay .mpn-policy-container, .policyDisplay .mpn-breach-container, .policyDisplay .mpn-contact-container').css("margin-bottom", "6px");
+    }
+    if (width <= 420) {
+      $('.policyDisplay .answer h4').css({"font-size": "1em", "width": "75%"});
+      $('.policyDisplay #key-list .key-item:first-child').css("margin-left", "20px");
+      $('.policyDisplay #key-list .key-item:last-child').css({"margin-top": "10px", "margin-left": "35%"});
+      $('.policyDisplay #key-list .key-item.active').css("padding", " 0 2px 0 2px");
+      $('.policyDisplay #key-list .alert').css({"height": "25px", "width": "25px"});
+      $('.policyDisplay .statement-styles, .policyDisplay .mpn-hipaa-container .hipaa-info, .policyDisplay .mpn-hipaa-container .use-info, .policyDisplay .mpn-use-container .hipaa-info, .policyDisplay .mpn-use-container .use-info, .policyDisplay .mpn-id-container .id-share, .policyDisplay .mpn-id-container .id-sell, .policyDisplay .mpn-id-container .nonId-share, .policyDisplay .mpn-id-container .nonId-sell, .policyDisplay .mpn-nonId-container .id-share, .policyDisplay .mpn-nonId-container .id-sell, .policyDisplay .mpn-nonId-container .nonId-share, .policyDisplay .mpn-nonId-container .nonId-sell').css("width", "95%");
+      $('.policyDisplay .mpn-data-storage-container .local-storage, .policyDisplay .mpn-data-storage-container .third-storage, .policyDisplay .mpn-encryption-container .encrypt-local, .policyDisplay .mpn-encryption-container .encrypt-third, .policyDisplay .mpn-encryption-container .encrypt-trans, .policyDisplay .mpn-user-access-container #user-qid, .policyDisplay .mpn-privacy-container .privacy-access, .policyDisplay .mpn-privacy-container .privacy-social, .policyDisplay .mpn-deactivation-container .deactivation-info, .policyDisplay .mpn-policy-container .policy-question, .policyDisplay .mpn-breach-container .breach-question').css("width", "95%");
+      $('.policyDisplay .info-styles, .policyDisplay .mpn-id-container .share-info, .policyDisplay .mpn-id-container .sell-info, .policyDisplay .mpn-nonId-container .share-info, .policyDisplay .mpn-nonId-container .sell-info, .policyDisplay .mpn-user-access-container .user-options, .policyDisplay .mpn-privacy-container .privacy-access-info, .policyDisplay .mpn-policy-container .policy-question .policy-info, .policyDisplay .mpn-breach-container .breach-question .breach-info').css({"width": "80%", "margin": "0 0 0 40px"});
+      $('.policyDisplay #mpn-contact-anchor').css({"font-size": "5px", "padding": "4px 8px"});
+    }
 });
 
 $(window).scroll(function() {
