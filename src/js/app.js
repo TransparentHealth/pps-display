@@ -481,4 +481,4 @@ function createDisplay() {
   });
   }
 
-  //createDisplay();
+  createDisplay();
