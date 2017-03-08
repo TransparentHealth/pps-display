@@ -27,7 +27,7 @@ $tinos: 'Tinos', serif;
   padding: none;
   border: none;
   width: 100%;
-  overflow: hidden;
+  overflow: scroll;
 
   html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -151,45 +151,9 @@ header {
       padding: 0 10px 0 10px;
     }
   }
-
-
-
-
-  #mpn-contact-anchor {
-      border: 2px solid black;
-      color: black;
-      font-size: 1.2em;
-      padding: 7px 14px;
-      transition: .3s ease;
-      border-radius: 3px;
-      cursor: pointer;
-
-      &:hover {
-        border: 2px solid $darkGray;
-        color: $darkGray;
-      }
-
-  }
-
 }
 
-#scrollUp {
-  border-radius: 5px;
-  position: fixed;
-  left: 83%;
-  bottom: 20%;
-  height: 50px;
-  width: 50px;
-  background-color: $darkGray;
-  color: #fff;
-  font-size: 25px;
-  opacity: .7;
-  padding-top: 12px;
-  text-align: center;
-  cursor: pointer;
-  display: none;
 
-}
 
 .answer {
   border-radius: 5px;
@@ -268,7 +232,7 @@ header {
 }
 
 .mpn-container-styles {
-  width: 80%;
+  width: 70%;
   margin: 0 auto;
   background-color: #fff;
   margin-bottom: 5px;
@@ -303,7 +267,6 @@ header {
   }
   .use-info {
     line-height: 20px;
-
   }
 }
 
@@ -359,9 +322,6 @@ header {
     .more-arrow-container {
       display: none;
     }
-  }
-  .encrypt-third h4 {
-    width: 80%;
   }
 }
 
@@ -457,81 +417,4 @@ header {
     }
   }
 }
-//
-// @media only screen and (max-width : 865px) {
-// .mpn-deactivation-container {
-//   .deactivation-info {
-//     font-size: 1em;
-//   }
-// }
-//
-// }
-//
-// @media only screen and (max-width : 780px) {
-//
-// .mpn-hipaa-container, .mpn-use-container, .mpn-id-container, .mpn-nonId-container, .mpn-contact-container, .mpn-encryption-container, .mpn-breach-container, .mpn-privacy-container, .mpn-policy-container, .mpn-deactivation-container, .mpn-user-access-container, .mpn-data-storage-container {
-//   width: 97%;
-// }
-// html {
-// cursor: pointer;
-// }
-// }
-//
-// @media only screen and (max-width : 550px) {
-//
-//   .policy-info, .breach-info {
-//     margin-top: 20px;
-//   }
-//
-//   .mpn-container-styles {
-//     margin-bottom: 6px;
-//   }
-//
-// }
-//
-// @media only screen and (max-width : 420px) {
-//
-//  .answer {
-//   h4 {
-//     font-size: 1em;
-//     width: 75%;
-//   }
-// }
-//
-//
-//   #key-list {
-//
-//     .key-item {
-//       &:first-child{
-//         margin-left: 20px;
-//       }
-//       &:last-child {
-//         margin-top: 10px;
-//         margin-left: 35%;
-//       }
-//       &.active {
-//         padding: 0 2px 0 2px;
-//       }
-//     }
-//     .alert {
-//       height: 25px;
-//       width: 25px;
-//     }
-//   }
-//
-//   .statement-styles {
-//     width: 95%;
-//   }
-//
-//   .info-styles {
-//     width: 80%;
-//     margin: 0 0 0 40px;
-//   }
-//
-//   #mpn-contact-anchor {
-//     font-size: 5px;
-//     padding: 4px 8px;
-//   }
-// }
-
 }
