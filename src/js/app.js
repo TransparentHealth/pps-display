@@ -386,19 +386,6 @@ function createDisplay() {
 
 
   // Event listeners
-    // Contact Button
-  $(document).on("click", "#mpn-contact-anchor", function(event) {
-      event.preventDefault();
-      $("body, html").animate({
-          scrollTop: $('.mpn-contact-container').offset().top
-      }, 600);
-  });
-    // Mobile scroll up button
-  $(document).on("click", "#scrollUp", function(event) {
-      $("html, body").animate({
-          scrollTop: 0
-      }, 600);
-  });
   //add class animates header items. if statements are media queryies.
   $( document ).ready(function() {
       $('.key-item').addClass('active');
@@ -412,7 +399,7 @@ function createDisplay() {
         $('.policyDisplay #mpn-contact-anchor').css({"font-size": "1em", "padding": "4px 8px"});
         $('.policyDisplay .statement-styles, .policyDisplay .mpn-hipaa-container .hipaa-info, .policyDisplay .mpn-hipaa-container .use-info, .policyDisplay .mpn-use-container .hipaa-info, .policyDisplay .mpn-use-container .use-info, .policyDisplay .mpn-id-container .id-share, .policyDisplay .mpn-id-container .id-sell, .policyDisplay .mpn-id-container .nonId-share, .policyDisplay .mpn-id-container .nonId-sell, .policyDisplay .mpn-nonId-container .id-share, .policyDisplay .mpn-nonId-container .id-sell, .policyDisplay .mpn-nonId-container .nonId-share, .policyDisplay .mpn-nonId-container .nonId-sell').css("width", "90%");
         $('.policyDisplay .mpn-data-storage-container .local-storage, .policyDisplay .mpn-data-storage-container .third-storage, .policyDisplay .mpn-encryption-container .encrypt-local, .policyDisplay .mpn-encryption-container .encrypt-third, .policyDisplay .mpn-encryption-container .encrypt-trans, .policyDisplay .mpn-user-access-container #user-qid, .policyDisplay .mpn-privacy-container .privacy-access, .policyDisplay .mpn-privacy-container .privacy-social, .policyDisplay .mpn-deactivation-container .deactivation-info, .policyDisplay .mpn-policy-container .policy-question, .policyDisplay .mpn-breach-container .breach-question').css("width", "90%");
-        $('.policyDisplay h4').css("width", "90%");
+        $('.policyDisplay h4').css("width", "85%");
         $('#key-list ul').css({"display": "flex", "flex-wrap": "wrap", "justify-content": "center"})
       }
       if (width <= 550) {
@@ -427,26 +414,21 @@ function createDisplay() {
         $('.policyDisplay .info-styles, .policyDisplay .mpn-id-container .share-info, .policyDisplay .mpn-id-container .sell-info, .policyDisplay .mpn-nonId-container .share-info, .policyDisplay .mpn-nonId-container .sell-info, .policyDisplay .mpn-user-access-container .user-options, .policyDisplay .mpn-privacy-container .privacy-access-info, .policyDisplay .mpn-policy-container .policy-question .policy-info, .policyDisplay .mpn-breach-container .breach-question .breach-info').css({"width": "80%", "margin": "0 0 0 40px"});
       }
   });
-  //scroll to top button
-  $(window).scroll(function() {
-      var height = $(window).scrollTop();
-      var width = $(window).width()
-      //check scroll for header animation
-       if (height  < 80 ) {
-        $('.key-item').addClass('active');
-      }
 
-      if (height  > 100 ) {
-        $('.key-item').removeClass('active');
-      }
-      //mobile scroll to top button
-      if(height  >  650 && width < 500) {
-        $("#scrollUp").css('display', 'inherit');
-      }
-      if(height < 500 && width < 500) {
-        $("#scrollUp").css('display', 'none');
-      }
-  });
+  var parent = $('.policyDisplay').parent();
+
+  $(parent).scroll(function() {
+     var height = $(parent).scrollTop();
+     var width = $(window).width()
+     //check scroll for header animation
+      if (height  < 40 ) {
+       $('.key-item').addClass('active');
+     }
+
+     if (height  > 100 ) {
+       $('.key-item').removeClass('active');
+     }
+ });
     // checks if "info" section has display: none. toggles betweeen hide/show
   function toggleHide(target, button) {
       textArrow(button);
