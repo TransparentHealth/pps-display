@@ -136,6 +136,7 @@ header {
     width:inherit;
   }
 
+
   .key-item {
     float: left;
     display: flex;
@@ -148,9 +149,13 @@ header {
     transition: .2s ease;
     padding: 0 0 10px 0;
 
+    &.first {
+      height: 35px;
+    }
+
     &.active {
       padding: 0 10px 0 10px;
-    }
+  }
   }
 }
 
@@ -182,7 +187,6 @@ header {
 }
 &.green {
   background-color: 	$green;
-  font-size: .8em;
 }
 &.yellow {
     background-color:  $yellow;
