@@ -5,8 +5,9 @@
 $yellow:  #e4bc5c;
 $darkGray: #6E6F71;
 $lightGray:   #ebebeb;
-$green:  #90a3b2;
+$green:  #9eb3b3;
 $red: #d25131;
+$blue: #90a3b2;
 
 //fonts
 $playfair:  'Playfair Display SC', serif;
@@ -186,8 +187,8 @@ header {
 &.yellow {
     background-color:  $yellow;
 }
-&.pink {
-    background-color: #f7cdbd;
+&.blue {
+    background-color: $blue;
     padding: 0 13px;
 }
 }
