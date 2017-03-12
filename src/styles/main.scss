@@ -266,6 +266,21 @@ header {
   background-color: black;
 }
 
+.mpn-info-list {
+  padding: 10px 0 0 30px;
+
+
+ li {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: nowrap;
+
+  p {
+    width: 100%;
+  }
+}
+ }
+
 .mpn-hipaa-container, .mpn-use-container {
   @extend .mpn-container-styles;
   border-radius: 3px;
@@ -279,19 +294,6 @@ header {
   }
   .use-info {
     line-height: 20px;
-    ul {
-      padding: 10px 0 0 30px;
-    }
-
-     li {
-       display: flex;
-       flex-direction: row;
-       flex-wrap: nowrap;
-
-      p {
-        width: 100%;
-      }
-     }
   }
 }
 
