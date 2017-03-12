@@ -408,10 +408,12 @@ function createDisplay() {
       }
       if (width <= 420) {
         $('.policyDisplay .answer h4').css({"font-size": "1em", "width": "75%"});
-        $('.policyDisplay #key-list .key-item:first-child').css("margin-left", "20px");
-        $('.policyDisplay #key-list .key-item.active').css("padding", " 0 2px 0 2px");
-        $('.policyDisplay #key-list .alert').css({"height": "25px", "width": "25px"});
+        $('.policyDisplay #key-list .key-item.active').css("padding", " 0 4px 0 4px");
+        //$('.policyDisplay #key-list .alert').css({"height": "25px", "width": "25px"});
         $('.policyDisplay .info-styles, .policyDisplay .mpn-id-container .share-info, .policyDisplay .mpn-id-container .sell-info, .policyDisplay .mpn-nonId-container .share-info, .policyDisplay .mpn-nonId-container .sell-info, .policyDisplay .mpn-user-access-container .user-options, .policyDisplay .mpn-privacy-container .privacy-access-info, .policyDisplay .mpn-policy-container .policy-question .policy-info, .policyDisplay .mpn-breach-container .breach-question .breach-info').css({"width": "80%", "margin": "0 0 0 40px"});
+      }
+      if (width <= 380) {
+      $('.policyDisplay #key-list .key-item.active').css("padding", " 0 3px 0 3px");
       }
   });
 
