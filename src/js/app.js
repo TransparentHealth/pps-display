@@ -141,7 +141,7 @@ function createDisplay() {
           $yourNonIdShare.append($nonIdShareInfo);
           $nonIdShareInfo.append('<p>We DO NOT share your data after removing identifiers</p>');
       } else {
-          $yourNonIdShare.append(setContainer('red', 'We share your non-identifiable data.', 'nonIdShare-arrow'));
+          $yourNonIdShare.append(setContainer('yellow', 'We share your non-identifiable data.', 'nonIdShare-arrow'));
           $yourNonIdShare.append($nonIdShareInfo);
           $nonIdShareInfo.append("<h5>We share your data AFTER removing identifiers:</h5>");
           $nonIdShareInfo.append($nonIdShareList);
