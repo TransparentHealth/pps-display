@@ -259,6 +259,13 @@ header {
   margin: 0 auto;
 }
 
+.mpn-point {
+  margin: 6px 10px 0 0;
+  height: 5px;
+  width: 5px;
+  background-color: black;
+}
+
 .mpn-hipaa-container, .mpn-use-container {
   @extend .mpn-container-styles;
   border-radius: 3px;
@@ -272,6 +279,19 @@ header {
   }
   .use-info {
     line-height: 20px;
+    ul {
+      padding: 10px 0 0 30px;
+    }
+
+     li {
+       display: flex;
+       flex-direction: row;
+       flex-wrap: nowrap;
+
+      p {
+        width: 100%;
+      }
+     }
   }
 }
 

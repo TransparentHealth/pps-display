@@ -42,7 +42,7 @@ var mpnData = {
         "health": true
     },
     "user": {
-        "hasOptions": "No",
+        "hasOptions": "Yes",
         "edit": true,
         "share": true,
         "delete": true
