@@ -302,7 +302,7 @@ function createDisplay() {
           $privacyAccessList.append('</ul>');
       }
        else if (mpnData.privacy.requestPermissions === 'No') {
-          $privacyAccess.append(setContainer('green', 'We will not request access to device data or applications.'));
+          $privacyAccess.append(setContainer('green', 'We will not request access to device data or applications.', 'privacy-arrow'));
       }
       $privacy.append($privacySocial);
       if (mpnData.privacy.socialMedia === 'Yes') {
