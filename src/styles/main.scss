@@ -375,6 +375,10 @@ header {
 
   .privacy-access {
     @extend .statement-styles;
+
+    .more-arrow-container {
+      display: none;
+    }
   }
   .privacy-access-info {
       @extend .info-styles;
