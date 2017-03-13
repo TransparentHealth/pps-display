@@ -379,6 +379,13 @@ header {
     .more-arrow-container {
       display: none;
     }
+
+    &.active {
+      .more-arrow-container {
+        display: inherit;
+      }
+
+    }
   }
   .privacy-access-info {
       @extend .info-styles;

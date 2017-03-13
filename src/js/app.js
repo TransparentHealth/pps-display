@@ -274,7 +274,7 @@ function createDisplay() {
       $privacy.append("<h3>Privacy:</h3>");
       $privacy.append($privacyAccess);
       if (mpnData.privacy.requestPermissions === 'Yes') {
-          $privacyAccess.append(setContainer('yellow', 'We will request access to device data or applications.', 'privacy-arrow'));
+          $privacyAccess.append(setContainer('yellow', 'We will request access to device data or applications.', 'privacy-arrow active'));
           $privacyAccess.append($privacyAccessInfo);
           $privacyAccessInfo.append('<h5>We will request access to:</h5>');
           $privacyAccessInfo.append($privacyAccessList);
