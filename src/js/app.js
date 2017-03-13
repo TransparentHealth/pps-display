@@ -268,13 +268,14 @@ function createDisplay() {
       // Privacy Info
       var $privacy = $('<div class="mpn-privacy-container"></div>');
       var $privacyAccess = $('<div class="privacy-access"></div>');
+      var $privacyAccessNoArrow = $('<div class="privacy-access-no"></div>');
       var $privacyAccessInfo = $('<div class="privacy-access-info  privacyHide"></div>');
       var $privacyAccessList = $('<ul class="mpn-info-list">');
       var $privacySocial = $('<div class="privacy-social"></div>');
       $privacy.append("<h3>Privacy:</h3>");
       $privacy.append($privacyAccess);
       if (mpnData.privacy.requestPermissions === 'Yes') {
-          $privacyAccess.append(setContainer('yellow', 'We will request access to device data or applications.', 'privacy-arrow rotate' ));
+          $privacyAccess.append(setContainer('yellow', 'We will request access to device data or applications.', 'privacy-arrow'));
           $privacyAccess.append($privacyAccessInfo);
           $privacyAccessInfo.append('<h5>We will request access to:</h5>');
           $privacyAccessInfo.append($privacyAccessList);
@@ -302,7 +303,9 @@ function createDisplay() {
           $privacyAccessList.append('</ul>');
       }
        else if (mpnData.privacy.requestPermissions === 'No') {
-          $privacyAccess.append(setContainer('green', 'We will not request access to device data or applications.'));
+         $privacy.remove($privacyAccess);
+          $privacy.append($privacyAccessNoArrow);
+           $privacyAccess.append(setContainer('green', 'We will not request access to device data or applications.'));
       }
       $privacy.append($privacySocial);
       if (mpnData.privacy.socialMedia === 'Yes') {

@@ -373,15 +373,16 @@ header {
   border-radius: 3px;
   @extend .mpn-container-styles;
 
-  .privacy-access {
+  .privacy-access, .privacy-access-no {
     @extend .statement-styles;
 
-    &.rotate {
-      .more-arrow-container {
-        display: none;
-      }
+  }
 
+  .privacy-access-no {
+    .more-arrow-container {
+      display: none;
     }
+
   }
   .privacy-access-info {
       @extend .info-styles;
