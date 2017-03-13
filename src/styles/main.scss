@@ -376,7 +376,7 @@ header {
   .privacy-access {
     @extend .statement-styles;
 
-    &.active {
+    &.rotate {
       .more-arrow-container {
         display: none;
       }
