@@ -376,13 +376,9 @@ header {
   .privacy-access {
     @extend .statement-styles;
 
-    .more-arrow-container {
-      display: none;
-    }
-
     &.active {
       .more-arrow-container {
-        display: inherit;
+        display: none;
       }
 
     }
