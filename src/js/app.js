@@ -303,7 +303,7 @@ function createDisplay() {
           $privacyAccessList.append('</ul>');
       }
        else if (mpnData.privacy.requestPermissions === 'No') {
-         $privacy.remove($privacyAccess);
+        $privacyAccess.detach();
           $privacy.append($privacyAccessNoArrow);
            $privacyAccess.append(setContainer('green', 'We will not request access to device data or applications.'));
       }
@@ -476,7 +476,7 @@ function createDisplay() {
       toggleHide(".nonShareHide", ".nonIdShare-arrow");
   });
   $('.policyDisplay').on("click", ".privacy-access", function() {
-      toggleHide(".privacyHide", ".privacy-arrow rotate");
+      toggleHide(".privacyHide", ".privacy-arrow");
   });
   }
 
