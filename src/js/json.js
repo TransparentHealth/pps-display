@@ -1,67 +1,69 @@
-var mpnData = {
+var mpnData =
+{
     "hipaa": {
         "protected": "Yes",
         "noticeUrl": "http://www.google.com"
     },
     "use": {
-        "companyOps": true,
-        "scientificResearch": true,
         "marketing": true,
-        "development": true
+        "scientificResearch": true,
+        "primaryService": true,
+        "other": true,
+        "otherDescription": "To File away and forget about"
     },
     "share": {
-        "developmentWithId": true,
+        "companyOpsWithId": true,
         "scientificResearchWithId": true,
-        "companyOpsNoId": false,
-        "scientificResearchNoId": false,
-        "otherWithId": true,
-        "otherDescriptionWithId": "To TEST INPUT",
-        "noneNoId": true
+        "primaryServiceWithId": true,
+        "otherNoId": true,
+        "otherDescriptionNoId": "For other things",
+        "developmentNoId": true,
+        "companyOpsNoId": true
     },
     "sell": {
-        "dataWithId": "Yes",
-        "dataNoId": "Yes. With your permission,"
+        "dataWithId": "Yes. With your permission,",
+        "dataNoId": "No"
     },
     "store": {
-        "device": "Yes",
+        "device": "No",
         "external": "Yes"
     },
     "encryption": {
-        "device": "Yes, by default",
-        "server": "Yes, when you take certain steps",
-        "transmit": "No"
+        "device": "Yes, when you take certain steps",
+        "server": "No",
+        "transmit": "Yes, by default"
     },
     "privacy": {
         "requestPermissions": "Yes",
-        "socialMedia": "No",
-        "other": false,
-        "microphone": true,
-        "location": false,
-        "photos": false,
         "camera": true,
-        "health": true
+        "photos": true,
+        "contact": true,
+        "other": true,
+        "otherDescription": "Brains",
+        "socialMedia": "Yes, only with your permission"
     },
     "user": {
         "hasOptions": "Yes",
+        "access": true,
         "edit": true,
-        "share": true,
-        "delete": true
+        "share": true
     },
     "deactivation": {
-        "action": "deleteOnRequest"
+        "action": "deleteAfterXYears",
+        "numYears": 5
     },
     "policy": {
-        "notificationMethod": "We will email you ASAP sdfasdfasdfasdf asdfasdfasdfasd sdf asdf as df asdf asdf aasdf asfsad fasdf asdf asdf asdfasf asdf  f sd f"
+        "notificationMethod": "Asymmetrical chartreuse roof party you probably haven't heard of them small batch, thundercats four loko. Knausgaard occupy flannel, leggings raclette cred mustache gastropub vape drinking vinegar DIY."
     },
     "breach": {
-        "procedure": "Lock your account and email you"
+        "procedure": "Tattooed woke banjo echo park, tousled butcher bicycle rights kitsch listicle succulents truffaut skateboard yuccie street art."
     },
     "contact": {
-        "name": "TEST company",
-        "privacyPolicy": "link",
-        "onlineComments": "link",
-        "email": "test@test.com",
-        "phone": "(919)456-2345",
-        "address": "asdasdasdas"
+        "name": "Zach & co.",
+        "privacyPolicy": "http://www.google.com",
+        "onlineComments": "http://www.amazon.com",
+        "email": "zach@zach.com",
+        "phone": "(919)666-6666",
+        "address": "dsafasfdsfads asdfasf asdf asd, NC sadfsd"
     }
-}
+} 
