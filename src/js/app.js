@@ -298,7 +298,7 @@ function createDisplay() {
               $privacyAccessList.append('<li><div class="mpn-point"></div><p>Health monitoring devices</p></li>');
           }
           if (mpnData.privacy.other) {
-              $privacyAccessInfo.append('<li><div class="mpn-point"></div><p>' + mpnData.privacy.otherDescription + '</p></li>');
+              $privacyAccessList.append('<li><div class="mpn-point"></div><p>' + mpnData.privacy.otherDescription + '</p></li>');
           }
           $privacyAccessList.append('</ul>');
       }
