@@ -51,7 +51,7 @@ var mpnData = {
         "action": "deleteOnRequest"
     },
     "policy": {
-        "notificationMethod": "We will email you ASAP"
+        "notificationMethod": "We will email you ASAP sdfasdfasdfasdf asdfasdfasdfasd sdf asdf as df asdf asdf aasdf asfsad fasdf asdf asdf asdfasf asdf  f sd f"
     },
     "breach": {
         "procedure": "Lock your account and email you"

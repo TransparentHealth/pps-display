@@ -85,6 +85,7 @@ $tinos: 'Tinos', serif;
 
   * p {
     font-family: $roboto;
+    width: 100%;
   }
 
 * h3 {
@@ -417,6 +418,9 @@ header {
 
     .policy-info {
         @extend .info-styles;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
     }
   }
 }
@@ -430,6 +434,9 @@ header {
 
     .breach-info {
         @extend .info-styles;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
     }
   }
 }
