@@ -18,7 +18,7 @@ module.exports = function(grunt) {
             },
             my_target: {
                 files: {
-                    'lib/js/app.min.js': ['lib/js/app.js'],
+                    'lib/js/mpnDisplay.min.js': ['lib/js/app.js'],
                     'lib/js/vendor.min.js': ['lib/js/vendor.js']
                 }
             }
