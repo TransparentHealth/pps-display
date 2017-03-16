@@ -427,7 +427,7 @@ function createDisplay() {
         $('.policyDisplay .mpn-container-styles, .policyDisplay .mpn-hipaa-container, .policyDisplay .mpn-use-container, .policyDisplay .mpn-id-container, .policyDisplay .mpn-nonId-container, .policyDisplay .mpn-data-storage-container, .policyDisplay .mpn-encryption-container, .policyDisplay .mpn-user-access-container, .policyDisplay .mpn-privacy-container, .policyDisplay .mpn-deactivation-container, .policyDisplay .mpn-policy-container, .policyDisplay .mpn-breach-container, .policyDisplay .mpn-contact-container').css("margin-bottom", "6px");
       }
       if (width <= 420) {
-        $('.policyDisplay .answer h4').css({"font-size": "1em", "width": "75%"});
+        $('.policyDisplay .answer h4').css({"font-size": "1em", "width": "83%"});
         $('.policyDisplay #key-list .key-item.active').css("padding", " 0 4px 0 4px");
         $('.policyDisplay .info-styles, .policyDisplay .mpn-id-container .share-info, .policyDisplay .mpn-id-container .sell-info, .policyDisplay .mpn-nonId-container .share-info, .policyDisplay .mpn-nonId-container .sell-info, .policyDisplay .mpn-user-access-container .user-options, .policyDisplay .mpn-privacy-container .privacy-access-info, .policyDisplay .mpn-policy-container .policy-question .policy-info, .policyDisplay .mpn-breach-container .breach-question .breach-info').css({"width": "95%", "margin": "0 0 0 16px"});
       }
