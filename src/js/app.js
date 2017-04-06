@@ -5,7 +5,7 @@ function createDisplay() {
       var $summary = $(containerSelector).html('');
       // Summary Title
       var $header = $('<header id="infoDisplay"></header>');
-      var $keyList = $('<div id="key-list"><ul><li class="key-item first"><p>Risk level:</p></li><li class="key-item"><div class="alert blue"></div><p>&nbspAttention</p></li><li class="key-item"><div class="alert green"></div><p>&nbspLow</p></li><li class="key-item"><div class="alert yellow"></div><p>&nbspMedium</p></li><li class="key-item"><div class="alert red"></div><p>&nbspHigh</p></li></ul>' );
+      var $keyList = $('<div id="key-list"><ul><li class="key-item first"><p>Risk level:</p></li><li class="key-item"><p id="blue">&nbspAttention</p></li><li class="key-item"><p id="green">&nbspLow</p></li><li class="key-item"><p id="yellow">&nbspMedium</p></li><li class="key-item"><p id="red">&nbspHigh</p></li></ul>' );
       $header.append($keyList);
 
       // HIPAA Info
@@ -407,6 +407,11 @@ function createDisplay() {
   //add class animates header items. if statements are media queryies.
   $( document ).ready(function() {
       $('.key-item').addClass('active');
+      });
+
+
+
+      $(window).resize( function () {
       var width = parseInt($(".policyDisplay").css("width"));
       if (width <= 850) {
         $('.policyDisplay .mpn-deactivation-container .deactivation-info').css("font-size", "1em");
@@ -428,13 +433,40 @@ function createDisplay() {
       }
       if (width <= 420) {
         $('.policyDisplay .answer h4').css({"font-size": "1em", "width": "83%"});
-        $('.policyDisplay #key-list .key-item.active').css("padding", " 0 4px 0 4px");
         $('.policyDisplay .info-styles, .policyDisplay .mpn-id-container .share-info, .policyDisplay .mpn-id-container .sell-info, .policyDisplay .mpn-nonId-container .share-info, .policyDisplay .mpn-nonId-container .sell-info, .policyDisplay .mpn-user-access-container .user-options, .policyDisplay .mpn-privacy-container .privacy-access-info, .policyDisplay .mpn-policy-container .policy-question .policy-info, .policyDisplay .mpn-breach-container .breach-question .breach-info').css({"width": "95%", "margin": "0 0 0 16px"});
       }
       if (width <= 380) {
-      $('.policyDisplay #key-list .key-item.active').css("padding", " 0 3px 0 3px");
+      $('.policyDisplay, header, .key-item, .active').css("padding", " 0 5px");
       }
-  });
+    });
+      var startingWidth = parseInt($(".policyDisplay").css("width"));
+    if (startingWidth <= 850) {
+      $('.policyDisplay .mpn-deactivation-container .deactivation-info').css("font-size", "1em");
+    }
+    if (startingWidth <= 780){
+      $('.policyDisplay .mpn-hipaa-container, .policyDisplay .mpn-use-container, .policyDisplay .mpn-id-container, .policyDisplay .mpn-nonId-container, .policyDisplay .mpn-contact-container, .policyDisplay .mpn-encryption-container, .policyDisplay .mpn-breach-container, .policyDisplay .mpn-privacy-container, .policyDisplay .mpn-policy-container, .policyDisplay .mpn-deactivation-container, .policyDisplay .mpn-user-access-container, .policyDisplay .mpn-data-storage-container').css("width", "97%");
+      $('.policyDisplay html').css("cursor", "pointer");
+      $('.policyDisplay #mpn-contact-anchor').css({"font-size": "1em", "padding": "4px 8px"});
+      $('.policyDisplay .statement-styles, .policyDisplay .mpn-hipaa-container .hipaa-info, .policyDisplay .mpn-hipaa-container .use-info, .policyDisplay .mpn-use-container .hipaa-info, .policyDisplay .mpn-use-container .use-info, .policyDisplay .mpn-id-container .id-share, .policyDisplay .mpn-id-container .id-sell, .policyDisplay .mpn-id-container .nonId-share, .policyDisplay .mpn-id-container .nonId-sell, .policyDisplay .mpn-nonId-container .id-share, .policyDisplay .mpn-nonId-container .id-sell, .policyDisplay .mpn-nonId-container .nonId-share, .policyDisplay .mpn-nonId-container .nonId-sell').css("width", "90%");
+      $('.policyDisplay .mpn-data-storage-container .local-storage, .policyDisplay .mpn-data-storage-container .third-storage, .policyDisplay .mpn-encryption-container .encrypt-local, .policyDisplay .mpn-encryption-container .encrypt-third, .policyDisplay .mpn-encryption-container .encrypt-trans, .policyDisplay .mpn-user-access-container #user-qid, .policyDisplay .mpn-privacy-container .privacy-access, .policyDisplay .mpn-privacy-container .privacy-social, .policyDisplay .mpn-deactivation-container .deactivation-info, .policyDisplay .mpn-policy-container .policy-question, .policyDisplay .mpn-breach-container .breach-question').css("width", "90%");
+      $('.policyDisplay h4').css("width", "85%");
+      $('#key-list ul').css({"display": "flex", "flex-wrap": "wrap", "justify-content": "center"});
+      $('.policyDisplay .mpn-info-list').css("padding", "10px 0 0 3px");
+      console.log("hey");
+    }
+    if (startingWidth <= 550) {
+      $('.policyDisplay .policy-info, .policyDisplay .breach-info').css("margin-top", "20px");
+      $('.policyDisplay .mpn-container-styles, .policyDisplay .mpn-hipaa-container, .policyDisplay .mpn-use-container, .policyDisplay .mpn-id-container, .policyDisplay .mpn-nonId-container, .policyDisplay .mpn-data-storage-container, .policyDisplay .mpn-encryption-container, .policyDisplay .mpn-user-access-container, .policyDisplay .mpn-privacy-container, .policyDisplay .mpn-deactivation-container, .policyDisplay .mpn-policy-container, .policyDisplay .mpn-breach-container, .policyDisplay .mpn-contact-container').css("margin-bottom", "6px");
+    }
+    if (startingWidth <= 420) {
+      $('.policyDisplay .answer h4').css({"font-size": "1em", "width": "83%"});
+      //$('.policyDisplay #key-list .key-item.active').css("padding", " 0 4px 0 4px");
+      $('.policyDisplay .info-styles, .policyDisplay .mpn-id-container .share-info, .policyDisplay .mpn-id-container .sell-info, .policyDisplay .mpn-nonId-container .share-info, .policyDisplay .mpn-nonId-container .sell-info, .policyDisplay .mpn-user-access-container .user-options, .policyDisplay .mpn-privacy-container .privacy-access-info, .policyDisplay .mpn-policy-container .policy-question .policy-info, .policyDisplay .mpn-breach-container .breach-question .breach-info').css({"width": "95%", "margin": "0 0 0 16px"});
+    }
+    if (startingWidth <= 380) {
+    $('.policyDisplay, header, .key-item, .active').css("padding", " 0 5px");
+    console.log("hey")
+    }
 
   var parent = $('.policyDisplay').parent();
 
