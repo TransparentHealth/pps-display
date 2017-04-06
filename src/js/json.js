@@ -1,28 +1,25 @@
-var mpnData =
-{
+var mpnData = {
     "hipaa": {
         "protected": "Yes",
         "noticeUrl": "http://www.google.com"
     },
     "use": {
-        "marketing": true,
-        "scientificResearch": true,
-        "primaryService": true,
-        "other": true,
-        "otherDescription": "To File away and forget about"
+        "development": true,
+        "companyOps": true,
+        "scientificResearch": true
     },
     "share": {
+        "developmentWithId": true,
         "companyOpsWithId": true,
         "scientificResearchWithId": true,
-        "primaryServiceWithId": true,
         "otherNoId": true,
-        "otherDescriptionNoId": "For other things",
+        "otherDescriptionNoId": "To print and make wallpaper out of",
         "developmentNoId": true,
         "companyOpsNoId": true
     },
     "sell": {
         "dataWithId": "Yes. With your permission,",
-        "dataNoId": "No"
+        "dataNoId": "Yes"
     },
     "store": {
         "device": "No",
@@ -35,35 +32,31 @@ var mpnData =
     },
     "privacy": {
         "requestPermissions": "Yes",
-        "camera": true,
-        "photos": true,
-        "contact": true,
-        "other": true,
-        "otherDescription": "Brains",
-        "socialMedia": "Yes, only with your permission"
+        "location": true,
+        "health": true,
+        "socialMedia": "No"
     },
     "user": {
         "hasOptions": "Yes",
         "access": true,
-        "edit": true,
-        "share": true
+        "delete": true
     },
     "deactivation": {
         "action": "deleteAfterXYears",
-        "numYears": 5
+        "numYears": 2
     },
     "policy": {
-        "notificationMethod": "Asymmetrical chartreuse roof party you probably haven't heard of them small batch, thundercats four loko. Knausgaard occupy flannel, leggings raclette cred mustache gastropub vape drinking vinegar DIY."
+        "notificationMethod": "We will email you our updated changes."
     },
     "breach": {
-        "procedure": "Tattooed woke banjo echo park, tousled butcher bicycle rights kitsch listicle succulents truffaut skateboard yuccie street art."
+        "procedure": "We will call and email."
     },
     "contact": {
-        "name": "Zach & co.",
-        "privacyPolicy": "http://www.google.com",
+        "name": "TEST & Co.",
+        "privacyPolicy": "http://www.amazon.com",
         "onlineComments": "http://www.amazon.com",
-        "email": "zach@zach.com",
-        "phone": "(919)666-6666",
-        "address": "dsafasfdsfads asdfasf asdf asd, NC sadfsd"
+        "email": "fred@gmail.com",
+        "phone": "(333)444-5555",
+        "address": "504 Fake Street Lane Durham, NC"
     }
-} 
+}
