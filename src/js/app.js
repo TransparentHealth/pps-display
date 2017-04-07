@@ -5,7 +5,7 @@ function createDisplay() {
       var $summary = $(containerSelector).html('');
       // Summary Title
       var $header = $('<header id="infoDisplay"></header>');
-      var $keyList = $('<div id="key-list"><ul><li class="key-item first"><p>Risk level:</p></li><li class="key-item"><p id="blue">&nbspAttention</p></li><li class="key-item"><p id="green">&nbspLow</p></li><li class="key-item"><p id="yellow">&nbspMedium</p></li><li class="key-item"><p id="red">&nbspHigh</p></li></ul>' );
+      var $keyList = $('<div id="key-list"><ul><li class="key-item first"><p>Risk level:</p></li><li class="key-item"><p id="green">&nbspLow</p></li><li class="key-item"><p id="yellow">&nbspMedium</p></li><li class="key-item"><p id="red">&nbspHigh</p></li></ul>' );
       $header.append($keyList);
 
       // HIPAA Info
@@ -27,11 +27,11 @@ function createDisplay() {
       function setContainer(id, text, arrowClass) {
          var $statementContainer;
         if (id === 'red') {
-          $statementContainer = '<div class="answer"><div class="alert red"></div><h4>' + text + '</h4><div class="more-arrow-container"><p id="more-info">info&nbsp</p><p class=' + arrowClass +'>&#10095</p></div></div>';
+          $statementContainer = '<div class="alert red">High</div><div class="answer"><h4>' + text + '</h4><div class="more-arrow-container"><p id="more-info">info&nbsp</p><p class=' + arrowClass +'>+</p></div></div>';
         } else if (id === 'yellow') {
-          $statementContainer = '<div class="answer"><div class="alert yellow"></div><h4>' + text + '</h4><div class="more-arrow-container"><p id="more-info">info&nbsp</p><p class=' + arrowClass + '>&#10095</p></div></div>';
+          $statementContainer = '<div class="alert yellow">Medium</div><div class="answer"><h4>' + text + '</h4><div class="more-arrow-container"><p id="more-info">info&nbsp</p><p class=' + arrowClass + '>+</p></div></div>';
         } else {
-          $statementContainer = '<div class="answer"><div class="alert green"></div><h4>' + text + '</h4><div class="more-arrow-container"><p id="more-info">info&nbsp</p><p class=' + arrowClass + '>&#10095</p></div></div>';
+          $statementContainer = '<div class="alert green">Low</div><div class="answer"><h4>' + text + '</h4><div class="more-arrow-container"><p id="more-info">info&nbsp</p><p class=' + arrowClass + '>&+</p></div></div>';
         }
         return $statementContainer;
       }
@@ -53,7 +53,7 @@ function createDisplay() {
       var $useInfo = $('<div class="use-info"></div>');
       $use.append("<h3>Use:</h3>");
       $use.append($useInfo);
-      $useInfo.append('<div class="answer"><div class="alert blue"></div><h4>We collect and use your identifiable data:</h4></div>');
+      $useInfo.append('<div class="answer"><h4>We collect and use your identifiable data:</h4></div>');
       var $useList = $('<ul class="mpn-info-list">');
       $useInfo.append($useList);
       if (mpnData.use.primaryService) {
@@ -195,7 +195,7 @@ function createDisplay() {
       } else if (mpnData.encryption.device === "No") {
           $encryptionLocal.append(setContainer('red', 'We do not encrypt your data.'));
       } else {
-          $encryptionLocal.append('<div class="answer"><div class="alert blue"></div><h4>Will we encrypt your data within your device? Answer is N/A</h4></div>');
+          $encryptionLocal.append('<div class="alert blue">Attention</div><div class="answer"><h4>Will we encrypt your data within your device? Answer is N/A</h4></div>');
       }
       $encryption.append($encryptionServer);
       if (mpnData.encryption.server === yesDefault) {
@@ -205,7 +205,7 @@ function createDisplay() {
       } else if (mpnData.encryption.server === "No") {
           $encryptionServer.append(setContainer('red', 'We do not encrypt your data when stored on our company servers or on the cloud.'));
       } else {
-          $encryptionServer.append('<div class="answer"><div class="alert blue"></div><h4>Will we encrypt your data when stored on our company servers or on the cloud? Answer is N/A</h4></div>');
+          $encryptionServer.append('<div class="alert blue">Attention</div><div class="answer"><h4>Will we encrypt your data when stored on our company servers or on the cloud? Answer is N/A</h4></div>');
       }
       $encryption.append($encryptionTransmit);
       if (mpnData.encryption.transmit === yesDefault) {
@@ -215,7 +215,7 @@ function createDisplay() {
       } else if (mpnData.encryption.transmit === "No") {
           $encryptionTransmit.append(setContainer('red', 'We do not encrypt your data while it is transmitted.'));
       } else {
-          $encryptionTransmit.append('<div class="answer"><div class="alert blue"></div><h4>Will we encrypt your data while it is transmitted? Answer is N/A</h4></div>');
+          $encryptionTransmit.append('<div class="alert blue">Attention</div><div class="answer"><h4>Will we encrypt your data while it is transmitted? Answer is N/A</h4></div>');
       }
 
       // Data Storing Info
@@ -243,7 +243,7 @@ function createDisplay() {
       var $userOptionsList = $('<ul class="mpn-info-list">');
       $user.append("<h3>User Options:</h3>");
       $user.append($userQuestion);
-      $userQuestion.append('<div class="answer"><div class="alert blue"></div><h4>What you can do with your data:</h4></div>');
+      $userQuestion.append('<div class="answer"><h4>What you can do with your data:</h4></div>');
       $userQuestion.append($userOptions);
       $userOptions.append($userOptionsList);
       $userOptionsList.append('<ul>');
@@ -344,7 +344,7 @@ function createDisplay() {
       var $policyInfo = $('<div class="policy-info"></div>');
       $policy.append("<h3>Policy Changes:</h3>");
       $policy.append($policyQuestion);
-      $policyQuestion.append('<div class="answer"><div class="alert blue"></div><h4>How we will notify you if our privacy policy changes:</h4></div>');
+      $policyQuestion.append('<div class="answer"><h4>How we will notify you if our privacy policy changes:</h4></div>');
       if (mpnData.policy.notificationMethod) {
           var $formText = $('<p>').text(mpnData.policy.notificationMethod);
           $policyQuestion.append($policyInfo);
@@ -357,7 +357,7 @@ function createDisplay() {
       var $breachInfo = $('<div class="breach-info"></div>');
       $breach.append("<h3> Data Breach:</h3>");
       $breach.append($breachQuestion);
-      $breachQuestion.append('<div class="answer"><div class="alert blue"></div><h4>How we will notify you and protect your data in case of an improper disclosure:</h4></div>');
+      $breachQuestion.append('<div class="answer"><h4>How we will notify you and protect your data in case of an improper disclosure:</h4></div>');
       if (mpnData.breach.procedure) {
           var $formText = mpnData.breach.procedure;
           $breachQuestion.append($breachInfo);
@@ -400,7 +400,7 @@ function createDisplay() {
           $contactInfo.append($formTitle).append($formText).append('<br>');
       }
       // Compile all summary sections
-      $summary.append($header).append($hipaa).append($use).append($yourId).append($yourNonId).append($encryption).append($store).append($user).append($privacy).append($deactivation).append($policy).append($breach).append($contact);
+      $summary.append($header).append($use).append($yourId).append($yourNonId).append($hipaa).append($encryption).append($store).append($user).append($privacy).append($deactivation).append($policy).append($breach).append($contact);
 
 
   // Event listeners
@@ -494,9 +494,15 @@ function createDisplay() {
       //return false;
 
   };
+
+  $.fn.extend({
+    toggleText: function(a, b){
+        return this.text(this.text() == b ? a : b);
+    }
+});
     // More/Less button active class toggle
   function textArrow(targetArrow) {
-      $(targetArrow).toggleClass("active");
+      $(targetArrow).toggleText('+', '-')
   };
 
      // More/Less button listeners
