@@ -269,6 +269,17 @@ body {
       }
     }
 
+    .mpn-risk {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      margin-bottom: 8px;
+      p {
+        width:40px;
+        vertical-align: center;
+      }
+    }
 
 
 
@@ -287,7 +298,7 @@ body {
     .alert {
         font-weight: bold;
         padding: 5px 12px;
-        margin-bottom: 5px;
+        //margin-bottom: 5px;
         width: 80px;
         border-radius: 3px;
         text-align: center;
