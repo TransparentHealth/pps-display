@@ -223,14 +223,9 @@ body {
             width: inherit;
             font-weight: bold;
             font-family: $roboto;
+            font-size: 16px;
             transition: 0.2s ease;
             padding: 0 0 10px 0;
-
-
-
-            &.first {
-                height: 18px;
-            }
 
             &.active {
                 padding: 0 10px;
@@ -409,7 +404,7 @@ body {
         }
 
         .hipaa-info {
-            font-size: 1.2em;
+            font-size: 1em;
         }
 
         .use-info {
