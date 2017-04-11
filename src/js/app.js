@@ -436,7 +436,7 @@ function createDisplay() {
         $('.policyDisplay .info-styles, .policyDisplay .mpn-id-container .share-info, .policyDisplay .mpn-id-container .sell-info, .policyDisplay .mpn-nonId-container .share-info, .policyDisplay .mpn-nonId-container .sell-info, .policyDisplay .mpn-user-access-container .user-options, .policyDisplay .mpn-privacy-container .privacy-access-info, .policyDisplay .mpn-policy-container .policy-question .policy-info, .policyDisplay .mpn-breach-container .breach-question .breach-info').css({"width": "95%", "margin": "0 0 0 16px"});
       }
       if (width <= 380) {
-      $('.policyDisplay, header, .key-item, .active').css({"padding": " 0 3px", "font-size": "16px"});
+      $('.policyDisplay #infoDisplay .key-item').css({"padding": " 0 3px", "font-size": "16px"});
       }
     });
 
@@ -465,7 +465,7 @@ function createDisplay() {
       $('.policyDisplay .info-styles, .policyDisplay .mpn-id-container .share-info, .policyDisplay .mpn-id-container .sell-info, .policyDisplay .mpn-nonId-container .share-info, .policyDisplay .mpn-nonId-container .sell-info, .policyDisplay .mpn-user-access-container .user-options, .policyDisplay .mpn-privacy-container .privacy-access-info, .policyDisplay .mpn-policy-container .policy-question .policy-info, .policyDisplay .mpn-breach-container .breach-question .breach-info').css({"width": "95%", "margin": "0 0 0 16px"});
     }
     if (startingWidth <= 380) {
-    $('.policyDisplay, header, .key-item, .active').css({"padding": " 0 3px", "font-size": "16px"});
+    $('.policyDisplay #infoDisplay .key-item').css({"padding": " 0 3px", "font-size": "16px"});
 
     }
 
